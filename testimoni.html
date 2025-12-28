@@ -16,13 +16,14 @@ header .logo img { height:48px; width:auto; }
 .fb-embed { flex:1; min-width:300px; }
 .right-side { flex:1; min-width:300px; display:flex; flex-direction:column; gap:20px; }
 
-.carousel-container { overflow:hidden; }
-.carousel-slide { display:flex; transition:transform 0.5s ease-in-out; }
+.carousel-container { overflow:hidden; padding-bottom:50px; }
+.carousel-slide { display:flex; transition:transform 0.5s ease-in-out; min-height:250px; }
 .testimoni-card { flex:0 0 50%; padding:20px; box-sizing:border-box; }
 .card-inner { background:#fefefe; border-radius:20px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.15); height:100%; }
-.card-inner p { margin-bottom:40px; } .card-inner span { font-weight:700; color:#001f4d; }
+.card-inner p { margin-bottom:10px; } 
+.card-inner span { font-weight:700; color:#001f4d; }
 
-.add-testimoni { background:#fefefe; border-radius:20px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin-top:30px; }
+.add-testimoni { background:#fefefe; border-radius:20px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin-top:40px; }
 .add-testimoni input, .add-testimoni textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; font-size:1em; }
 .add-testimoni button { padding:10px 20px; background:#1a1a3f; color:#fff; border:none; border-radius:10px; font-weight:600; cursor:pointer; }
 .add-testimoni button:hover { background:#333366; }
@@ -55,15 +56,13 @@ footer { text-align:center; padding:12px; font-size:0.85em; background:#f0f0f0; 
 
 <div class="main-container">
   <!-- Kiri: Embed Facebook -->
-<iframe 
-  src="https://www.facebook.com/plugins/post.php?href=URL_POST&show_text=true&width=500"
-  width="100%" height="650"
-  style="border:none;overflow:hidden"
-  scrolling="no"
-  frameborder="0"
-  allowfullscreen="true">
-</iframe>
-
+  <div class="fb-embed">
+    <iframe 
+      src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" 
+      width="100%" height="650" style="border:none;overflow:hidden" 
+      scrolling="no" frameborder="0" allowfullscreen="true">
+    </iframe>
+  </div>
 
   <!-- Kanan: Carousel + Form -->
   <div class="right-side">
