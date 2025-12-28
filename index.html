@@ -21,10 +21,7 @@
     border-bottom: 1px solid #ddd;
   }
 
-  header .logo img {
-    height: 48px;
-    width: auto;
-  }
+  header .logo img { height: 48px; width: auto; }
 
   header .header-buttons {
     display: flex;
@@ -46,7 +43,6 @@
     background: #333366;
   }
 
-  /* HERO */
   .hero {
     width: 100%;
     height: 400px;
@@ -68,9 +64,7 @@
     transition: opacity 1s ease-in-out;
   }
 
-  .hero img.active {
-    opacity: 1;
-  }
+  .hero img.active { opacity: 1; }
 
   .hero h2 {
     position: relative;
@@ -82,12 +76,11 @@
     transform: translateY(-30%);
   }
 
-  /* Tombol/icon grid besar & lucu */
   .feature-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 30px;
+    gap: 25px;
+    padding: 25px;
     justify-items: center;
     text-align: center;
   }
@@ -105,7 +98,7 @@
   }
 
   .feature-card img {
-    width: 240px;  /* 3x lebih besar */
+    width: 240px; 
     height: 240px;
     margin-bottom: 15px;
     object-fit: contain;
@@ -123,7 +116,6 @@
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   }
 
-  /* THREADS */
   .threads { padding: 15px; }
   .thread {
     background: #f5f5f5;
@@ -146,12 +138,20 @@
     border-top: 1px solid #ddd;
   }
 
-  @media(max-width: 1200px) { .feature-card img { width: 180px; height: 180px; } }
-  @media(max-width: 900px) { .feature-cards { grid-template-columns: repeat(2, 1fr); } }
-  @media(max-width: 600px) { 
-    .feature-cards { grid-template-columns: 1fr; } 
-    .hero h2 { font-size: 1.8em; }
+  /* RESPONSIVE */
+  @media(max-width: 1200px) {
+    .feature-card img { width: 180px; height: 180px; }
+  }
+  @media(max-width: 900px) {
+    .feature-cards { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .feature-card img { width: 160px; height: 160px; }
+  }
+  @media(max-width: 600px) {
+    header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    header .header-buttons { width: 100%; justify-content: space-between; }
+    .feature-cards { grid-template-columns: 1fr; gap: 15px; padding: 15px; }
     .feature-card img { width: 140px; height: 140px; }
+    .hero h2 { font-size: 1.8em; transform: translateY(-20%); }
   }
 </style>
 </head>
