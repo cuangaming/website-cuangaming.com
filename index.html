@@ -8,8 +8,8 @@
   body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #0b0b16 0%, #1a1a3f 90%);
-    color: #fff;
+    background: #ffffff; /* Background putih keseluruhan */
+    color: #1a1a3f;
   }
 
   /* HEADER */
@@ -19,6 +19,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
   }
 
   header .logo img {
@@ -43,7 +44,7 @@
 
   .header-buttons a:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   }
 
   /* HERO FULL WIDTH */
@@ -61,41 +62,36 @@
   .hero h2 {
     font-size: 2.6em;
     font-weight: bold;
-    color: #001f4d; /* Navy Blue */
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    transform: translateY(-30%); /* Naik sedikit */
+    color: #001f4d;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    transform: translateY(-30%);
   }
 
-  /* NAVIGATION BUTTONS 2 BARIS */
-  .nav-buttons {
+  /* FEATURE BUTTONS ala Fonnte */
+  .feature-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 15px;
-  }
-
-  .nav-row {
-    display: flex;
-    gap: 12px;
     flex-wrap: wrap;
+    gap: 12px;
     justify-content: center;
+    padding: 25px 15px;
   }
 
-  .nav-buttons a {
+  .feature-btn {
     background: linear-gradient(45deg, #ff6a00, #ee0979);
     color: #fff;
-    padding: 12px 20px;
+    padding: 12px 22px;
     border-radius: 14px;
-    text-align: center;
     font-weight: 600;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     transition: 0.3s;
   }
 
-  .nav-buttons a:hover {
-    transform: scale(1.07);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+  .feature-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
   }
 
   /* THREADS SECTION */
@@ -104,26 +100,28 @@
   }
 
   .thread {
-    background: #1e1e38;
+    background: #f5f5f5;
     padding: 14px 16px;
     border-radius: 10px;
     margin-bottom: 12px;
+    border: 1px solid #ddd;
     transition: 0.2s;
   }
 
   .thread:hover {
-    background: #2a2a52;
+    background: #eaeaea;
   }
 
   .thread h3 {
     margin: 0;
     font-size: 1.15em;
+    color: #001f4d;
   }
 
   .thread p {
     margin: 4px 0 0;
     font-size: 0.9em;
-    color: #ccc;
+    color: #555;
   }
 
   /* FOOTER */
@@ -131,8 +129,9 @@
     text-align: center;
     padding: 12px;
     font-size: 0.85em;
-    background: #12121f;
-    color: #aaa;
+    background: #f0f0f0;
+    color: #777;
+    border-top: 1px solid #ddd;
   }
 
   /* RESPONSIVE */
@@ -147,7 +146,7 @@
       justify-content: space-between;
     }
 
-    .nav-row {
+    .feature-buttons {
       flex-direction: column;
       align-items: center;
     }
@@ -174,20 +173,15 @@
   <h2>Komunitas & Forum Jual Beli Cuan Gaming</h2>
 </div>
 
-<div class="nav-buttons">
-  <!-- Baris 1 -->
-  <div class="nav-row">
-    <a href="https://www.cuangaming.store" target="_blank">💰 Topup Game 24/7</a>
-    <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank">📱 Beli UGPhone</a>
-    <a href="#">🤝 Partner Cuan Gaming</a>
-  </div>
-  <!-- Baris 2 -->
-  <div class="nav-row">
-    <a href="komunitas.html">🌐 Komunitas</a>
-    <a href="#">📝 Testimoni</a>
-    <a href="#">🎓 Edukasi</a>
-    <a href="#">⚠️ List Penipu</a>
-  </div>
+<!-- Tombol fitur ala Fonnte -->
+<div class="feature-buttons">
+  <a href="https://www.cuangaming.store" target="_blank" class="feature-btn">💰 Topup Game 24/7</a>
+  <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank" class="feature-btn">📱 Beli UGPhone</a>
+  <a href="#" class="feature-btn">🤝 Partner Cuan Gaming</a>
+  <a href="komunitas.html" class="feature-btn">🌐 Komunitas</a>
+  <a href="#" class="feature-btn">📝 Testimoni</a>
+  <a href="#" class="feature-btn">🎓 Edukasi</a>
+  <a href="#" class="feature-btn">⚠️ List Penipu</a>
 </div>
 
 <div class="threads">
@@ -201,4 +195,3 @@
 
 </body>
 </html>
-
