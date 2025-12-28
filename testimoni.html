@@ -8,17 +8,17 @@
 body { margin:0; font-family:"Poppins",sans-serif; background:#fff; color:#1a1a3f; }
 header { display:flex; justify-content:space-between; align-items:center; padding:8px 16px; border-bottom:1px solid #ddd; }
 header .logo img { height:48px; width:auto; }
-.header-buttons { display:flex; gap:10px; }
-.header-buttons a { background:#1a1a3f; padding:6px 12px; border-radius:10px; color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
+.header-buttons { display:flex; gap:8px; }
+.header-buttons a { background:#1a1a3f; padding:6px 10px; border-radius:10px; color:#fff; text-decoration:none; font-weight:600; transition:0.3s; font-size:0.9em; }
 .header-buttons a:hover { transform:scale(1.05); background:#333366; }
 
-.main-container { display:flex; flex-wrap:wrap; max-width:1200px; margin:30px auto; gap:20px; }
+.main-container { display:flex; flex-wrap:wrap; max-width:1200px; margin:20px auto; gap:20px; }
 .fb-embed { flex:1; min-width:300px; }
 .right-side { flex:1; min-width:300px; display:flex; flex-direction:column; gap:20px; }
 
 .carousel-container { overflow:hidden; padding-bottom:50px; }
 .carousel-slide { display:flex; transition:transform 0.5s ease-in-out; min-height:250px; }
-.testimoni-card { flex:0 0 50%; padding:20px; box-sizing:border-box; }
+.testimoni-card { flex:0 0 50%; padding:15px; box-sizing:border-box; }
 .card-inner { background:#fefefe; border-radius:20px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.15); height:100%; }
 .card-inner p { margin-bottom:10px; } 
 .card-inner span { font-weight:700; color:#001f4d; }
@@ -37,10 +37,14 @@ header .logo img { height:48px; width:auto; }
 footer { text-align:center; padding:12px; font-size:0.85em; background:#f0f0f0; color:#777; border-top:1px solid #ddd; }
 
 @media(max-width:900px) { 
-  .main-container { flex-direction:column; } 
+  header { flex-direction:row; }
+  .main-container { flex-direction:column; margin:10px; } 
+  .fb-embed{width:100%; height:auto;}
+  .right-side { width:100%; }
   .testimoni-card{flex:0 0 100%;} 
   .feature-card{width:140px;} 
   .feature-card img{width:140px;height:140px;} 
+  .header-buttons a{font-size:0.8em; padding:5px 8px;}
 }
 </style>
 </head>
@@ -113,26 +117,43 @@ fetch('https://raw.githubusercontent.com/cuangaming/funbot/main/testimoni.json')
   // Carousel otomatis
   let currentIndex = 0;
   setInterval(() => {
-    currentIndex += 2;
+    let step = window.innerWidth <= 900 ? 1 : 2; // mobile 1 per slide, desktop 2
+    currentIndex += step;
     if(currentIndex >= data.length) currentIndex = 0;
     slide.style.transform = `translateX(-${currentIndex*50}%)`;
   },5000);
 });
 
-// Fungsi tambah testimoni (sementara hanya di browser)
+// Fungsi tambah testimoni (POST ke backend)
 function tambahTestimoni() {
   const nama = document.getElementById('nama').value;
   const komentar = document.getElementById('komentar').value;
   if(!nama || !komentar){ alert("Isi nama & komentar!"); return; }
 
-  const div = document.createElement('div');
-  div.classList.add('testimoni-card');
-  div.innerHTML = `<div class="card-inner"><p>${komentar}</p><span>- ${nama}</span></div>`;
-  slide.appendChild(div);
-
-  document.getElementById('nama').value = '';
-  document.getElementById('komentar').value = '';
-  alert("Testimoni berhasil ditambahkan! (sementara hanya di halaman ini, belum tersimpan ke GitHub)");
+  fetch('http://localhost:3000/tambah-testimoni', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({nama, komen: komentar})
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data.success){
+      alert(data.message);
+      // Tambahkan testimoni langsung ke carousel
+      const div = document.createElement('div');
+      div.classList.add('testimoni-card');
+      div.innerHTML = `<div class="card-inner"><p>${komentar}</p><span>- ${nama}</span></div>`;
+      slide.appendChild(div);
+      document.getElementById('nama').value='';
+      document.getElementById('komentar').value='';
+    } else {
+      alert('Gagal menambahkan testimoni!');
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Terjadi error saat menambahkan testimoni!');
+  });
 }
 </script>
 
