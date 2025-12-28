@@ -5,37 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cuan Gaming - Testimoni</title>
 <style>
-  body {margin:0;font-family:Arial,sans-serif;background:#fff;color:#001f3f;}
-  header {display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
-  header img {height:50px;}
-  header .buttons button {margin-left:10px;padding:5px 10px;font-size:0.9rem;cursor:pointer;}
+body {margin:0;font-family:Arial,sans-serif;background:#fff;color:#001f3f;}
+header {display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+header img {height:50px;}
+header .buttons button {margin-left:10px;padding:5px 10px;font-size:0.9rem;cursor:pointer;}
 
-  .testi-section {display:flex;flex-wrap:wrap;justify-content:center;margin:20px;}
-  .fb-embed, .carousel-container {flex:1 1 300px;margin:10px;}
-  iframe {width:100%;border:none;overflow:hidden;}
+.container {max-width:1200px;margin:0 auto;padding:20px;}
+.row {display:flex;flex-wrap:wrap;margin-bottom:20px;}
+.col {flex:1 1 300px;margin:10px;}
 
-  .carousel {overflow:hidden;position:relative;}
-  .carousel-slide {display:flex;transition:transform 0.5s ease-in-out;}
-  .carousel-item {min-width:50%;box-sizing:border-box;padding:10px;text-align:left;background:#f8f8f8;margin:5px;border-radius:5px;}
+iframe {width:100%;border:none;overflow:hidden;}
 
-  form {margin-top:10px;display:flex;flex-direction:column;}
-  form input, form textarea {margin:5px 0;padding:8px;font-size:1rem;border:1px solid #ccc;border-radius:4px;}
-  form button {padding:10px;background:#001f3f;color:#fff;border:none;border-radius:4px;cursor:pointer;transition:background 0.3s;}
-  form button:hover {background:#003366;}
+.carousel {overflow:hidden;position:relative;}
+.carousel-slide {display:flex;transition:transform 0.5s ease-in-out;}
+.carousel-item {min-width:25%;box-sizing:border-box;padding:10px;text-align:left;background:#f8f8f8;margin:5px;border-radius:5px;}
 
-  .footer-icons {display:flex;flex-wrap:wrap;justify-content:center;margin:20px 0;}
-  .footer-icons .func-btn {width:240px;height:240px;margin:10px;text-align:center;cursor:pointer;transition:transform 0.2s;}
-  .footer-icons .func-btn img {width:240px;height:240px;display:block;margin:0 auto;}
-  .footer-icons .func-btn span {display:block;margin-top:5px;font-weight:bold;color:#001f3f;}
-  .footer-icons .func-btn:hover {transform:scale(1.05);}
+form {margin-top:10px;display:flex;flex-direction:column;}
+form input, form textarea {margin:5px 0;padding:8px;font-size:1rem;border:1px solid #ccc;border-radius:4px;}
+form button {padding:10px;background:#001f3f;color:#fff;border:none;border-radius:4px;cursor:pointer;transition:background 0.3s;}
+form button:hover {background:#003366;}
 
-  @media (max-width:768px){
-    .testi-section {flex-direction:column;}
-    .carousel-item {min-width:100%;}
-    .footer-icons {flex-direction:row;justify-content:space-around;}
-    .footer-icons .func-btn {width:45%;height:auto;}
-    .footer-icons .func-btn img {width:100%;height:auto;}
-  }
+.footer-icons {display:flex;flex-wrap:wrap;justify-content:center;margin:20px 0;}
+.footer-icons .func-btn {width:240px;height:240px;margin:10px;text-align:center;cursor:pointer;transition:transform 0.2s;}
+.footer-icons .func-btn img {width:240px;height:240px;display:block;margin:0 auto;}
+.footer-icons .func-btn span {display:block;margin-top:5px;font-weight:bold;color:#001f3f;}
+.footer-icons .func-btn:hover {transform:scale(1.05);}
+
+@media (max-width:768px){
+  .row {flex-direction:column;}
+  .carousel-item {min-width:50%;}
+  .footer-icons .func-btn {width:45%;height:auto;}
+  .footer-icons .func-btn img {width:100%;height:auto;}
+}
 </style>
 </head>
 <body>
@@ -48,30 +49,40 @@
   </div>
 </header>
 
-<div class="testi-section">
-  <!-- Facebook embed kiri -->
-  <div class="fb-embed">
-    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" width="100%" height="631" scrolling="no" frameborder="0" allowfullscreen></iframe>
-  </div>
+<div class="container">
 
-  <!-- Carousel + form kanan -->
-  <div class="carousel-container">
-    <div class="carousel" id="carousel">
-      <div class="carousel-slide" id="carouselSlide"></div>
+  <!-- Baris 1: Embed Facebook | Carousel 4 testi per slide -->
+  <div class="row">
+    <div class="col fb-embed">
+      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" width="100%" height="631" scrolling="no" frameborder="0" allowfullscreen></iframe>
     </div>
-
-    <form id="formTestimoni" onsubmit="tambahTestimoni(); return false;">
-      <input type="text" id="nama" placeholder="Nama kamu" required>
-      <textarea id="komentar" placeholder="Tulis testimoni" required></textarea>
-      <button type="submit">Kirim Testimoni</button>
-    </form>
+    <div class="col">
+      <div class="carousel" id="carousel">
+        <div class="carousel-slide" id="carouselSlide"></div>
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- Footer icon 2 -->
-<div class="footer-icons">
-  <div class="func-btn"><img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png"><span>Topup Game 24/7</span></div>
-  <div class="func-btn"><img src="https://raw.githubusercontent.com/cuangaming/funbot/main/ugphone.png"><span>Beli UGPhone</span></div>
+  <!-- Baris 2: Embed Facebook | Form -->
+  <div class="row">
+    <div class="col fb-embed">
+      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" width="100%" height="631" scrolling="no" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col">
+      <form id="formTestimoni" onsubmit="tambahTestimoni(); return false;">
+        <input type="text" id="nama" placeholder="Nama kamu" required>
+        <textarea id="komentar" placeholder="Tulis testimoni" required></textarea>
+        <button type="submit">Kirim Testimoni</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Baris 3: Footer icon -->
+  <div class="footer-icons">
+    <div class="func-btn"><img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png"><span>Topup Game 24/7</span></div>
+    <div class="func-btn"><img src="https://raw.githubusercontent.com/cuangaming/funbot/main/ugphone.png"><span>Beli UGPhone</span></div>
+  </div>
+
 </div>
 
 <script>
@@ -87,13 +98,13 @@
         carouselSlide.appendChild(div);
       });
 
-      // Slider otomatis
-      let idx=0;
-      const itemsPerSlide = 2;
+      // Slider otomatis 4 testi per slide
+      let idx = 0;
+      const itemsPerSlide = 4;
       const totalItems = data.length;
       setInterval(()=>{
-        let shift = Math.floor(idx) * 100 / itemsPerSlide;
-        carouselSlide.style.transform=`translateX(-${shift}%)`;
+        let shift = (idx*100)/itemsPerSlide;
+        carouselSlide.style.transform = `translateX(-${shift}%)`;
         idx = (idx + itemsPerSlide) % totalItems;
       },5000);
     });
