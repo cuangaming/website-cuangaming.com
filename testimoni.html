@@ -5,19 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CuanGaming • Testimoni</title>
 <style>
-  body { margin:0; font-family: "Poppins", sans-serif; background:#fff; color:#1a1a3f; }
+  body { margin:0; font-family:"Poppins",sans-serif; background:#fff; color:#1a1a3f; }
   header { display:flex; justify-content:space-between; align-items:center; padding:8px 16px; border-bottom:1px solid #ddd; }
   header .logo img { height:48px; width:auto; }
   .header-buttons { display:flex; gap:10px; }
   .header-buttons a { background:#1a1a3f; padding:6px 12px; border-radius:10px; color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
   .header-buttons a:hover { transform:scale(1.05); background:#333366; }
 
-  .fb-embed { max-width:900px; margin:30px auto; }
-  .carousel-container { max-width:900px; margin:30px auto; overflow:hidden; }
+  .main-container { display:flex; flex-wrap:wrap; max-width:1200px; margin:30px auto; gap:20px; }
+  .fb-embed { flex:1; min-width:300px; }
+  .right-side { flex:1; min-width:300px; display:flex; flex-direction:column; gap:20px; }
+
+  .carousel-container { overflow:hidden; }
   .carousel-slide { display:flex; transition:transform 0.5s ease-in-out; }
   .testimoni-card { flex:0 0 50%; padding:20px; box-sizing:border-box; }
   .card-inner { background:#fefefe; border-radius:20px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.15); height:100%; }
   .card-inner p { margin-bottom:10px; } .card-inner span { font-weight:700; color:#001f4d; }
+
+  .add-testimoni { background:#fefefe; border-radius:20px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+  .add-testimoni input, .add-testimoni textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; font-size:1em; }
+  .add-testimoni button { padding:10px 20px; background:#1a1a3f; color:#fff; border:none; border-radius:10px; font-weight:600; cursor:pointer; }
+  .add-testimoni button:hover { background:#333366; }
 
   .feature-cards { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; padding:20px; }
   .feature-card { display:flex; flex-direction:column; align-items:center; text-decoration:none; transition:0.3s; background:#fefefe; padding:15px; border-radius:25px; box-shadow:0 4px 12px rgba(0,0,0,0.15); width:240px; }
@@ -25,15 +33,9 @@
   .feature-card span { font-weight:700; color:#001f4d; text-align:center; font-size:1.1em; }
   .feature-card:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.25); }
 
-  .add-testimoni { max-width:600px; margin:30px auto; padding:20px; background:#fefefe; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
-  .add-testimoni h3 { margin-top:0; }
-  .add-testimoni input, .add-testimoni textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; font-size:1em; }
-  .add-testimoni button { padding:10px 20px; background:#1a1a3f; color:#fff; border:none; border-radius:10px; font-weight:600; cursor:pointer; }
-  .add-testimoni button:hover { background:#333366; }
-
   footer { text-align:center; padding:12px; font-size:0.85em; background:#f0f0f0; color:#777; border-top:1px solid #ddd; }
 
-  @media(max-width:700px){ .testimoni-card{flex:0 0 100%;} .feature-card{width:140px;} .feature-card img{width:140px;height:140px;} }
+  @media(max-width:900px) { .main-container { flex-direction:column; } .testimoni-card{flex:0 0 100%;} .feature-card{width:140px;} .feature-card img{width:140px;height:140px;} }
 </style>
 </head>
 <body>
@@ -46,28 +48,34 @@
   </div>
 </header>
 
-<!-- Embed Facebook -->
-<div class="fb-embed">
-  <iframe 
-    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" 
-    width="100%" 
-    height="650" 
-    style="border:none;overflow:hidden" 
-    scrolling="no" frameborder="0" allowfullscreen="true">
-  </iframe>
-</div>
+<div class="main-container">
+  <!-- Kiri: Embed Facebook -->
+  <div class="fb-embed">
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" width="100%" height="650" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+  </div>
 
-<!-- Carousel testimoni -->
-<div class="carousel-container">
-  <div class="carousel-slide">
-    <div class="testimoni-card"><div class="card-inner"><p>Pelayanan fast respon, ramah pokoknya terbestttt rekomended bgt</p><span>- Yurryansyah</span></div></div>
-    <div class="testimoni-card"><div class="card-inner"><p>Mantap dan terpercaya</p><span>- G Permana P</span></div></div>
-    <div class="testimoni-card"><div class="card-inner"><p>Fast respon sat set sudah langganan terima kasih....</p><span>- Rio SQuare Man</span></div></div>
-    <div class="testimoni-card"><div class="card-inner"><p>Best and fast ldc seller, aman cepat dan terpercaya 😘</p><span>- Elaine</span></div></div>
+  <!-- Kanan: Carousel + Form -->
+  <div class="right-side">
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <div class="testimoni-card"><div class="card-inner"><p>Pelayanan fast respon, ramah pokoknya terbestttt rekomended bgt</p><span>- Yurryansyah</span></div></div>
+        <div class="testimoni-card"><div class="card-inner"><p>Mantap dan terpercaya</p><span>- G Permana P</span></div></div>
+        <div class="testimoni-card"><div class="card-inner"><p>Fast respon sat set sudah langganan terima kasih....</p><span>- Rio SQuare Man</span></div></div>
+        <div class="testimoni-card"><div class="card-inner"><p>Best and fast ldc seller, aman cepat dan terpercaya 😘</p><span>- Elaine</span></div></div>
+      </div>
+    </div>
+
+    <!-- Form tambah testimoni -->
+    <div class="add-testimoni">
+      <h3>Tambah Testimoni</h3>
+      <input type="text" id="nama" placeholder="Nama">
+      <textarea id="komentar" placeholder="Komentar" rows="4"></textarea>
+      <button onclick="tambahTestimoni()">Kirim Testimoni</button>
+    </div>
   </div>
 </div>
 
-<!-- Tombol bawah carousel -->
+<!-- Tombol bawah -->
 <div class="feature-cards">
   <a href="https://www.cuangaming.store" target="_blank" class="feature-card">
     <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png" alt="Topup Game">
@@ -79,18 +87,9 @@
   </a>
 </div>
 
-<!-- Form tambah testimoni -->
-<div class="add-testimoni">
-  <h3>Tambah Testimoni</h3>
-  <input type="text" id="nama" placeholder="Nama">
-  <textarea id="komentar" placeholder="Komentar" rows="4"></textarea>
-  <button onclick="tambahTestimoni()">Kirim Testimoni</button>
-</div>
-
 <footer>© 2025 CuanGaming. All rights reserved.</footer>
 
 <script>
-  // Carousel slide 2 per slide
   const slide = document.querySelector('.carousel-slide');
   const cards = document.querySelectorAll('.carousel-slide .testimoni-card');
   let currentIndex = 0;
@@ -100,7 +99,6 @@
     slide.style.transform = `translateX(-${currentIndex * 50}%)`;
   }, 5000);
 
-  // Fungsi tambah testimoni (sementara di browser saja)
   function tambahTestimoni() {
     const nama = document.getElementById('nama').value;
     const komentar = document.getElementById('komentar').value;
