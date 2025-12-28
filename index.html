@@ -1,86 +1,139 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CuanGaming</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CuanGaming • Store</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #0f0f15;
+    color: #fff;
+  }
+  /* ===== Header ===== */
+  header {
+    background: linear-gradient(90deg, #4b1fbe, #2fa8e6);
+    padding: 18px;
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: bold;
+  }
+  /* ===== Hero Banner ===== */
+  .hero {
+    background-image: url('https://images.pexels.com/photos/394568/pexels-photo-394568.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 10px #000;
+  }
+  .hero h2 {
+    font-size: 3em;
+    color: #fff;
+  }
 
-    /* ===== Body & Typography ===== */
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: #111;
-      color: #fff;
-    }
-    header {
-      text-align: center;
-      padding: 25px;
-      font-size: 2.2em;
-      font-weight: 700;
-      background: linear-gradient(90deg, #4b1fbe, #2fa8e6);
-    }
+  /* ===== Navigation Buttons ===== */
+  .nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    justify-content: center;
+  }
+  .nav-buttons a {
+    background: #ff4d4d;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    flex: 1 1 150px;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .nav-buttons a:hover {
+    background: #ff1a1a;
+    transform: scale(1.05);
+  }
 
-    /* ===== Container ===== */
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
+  /* ===== Game Category Grid ===== */
+  .games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 15px;
+  }
+  .games img {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .games p {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 6px;
+  }
 
-    /* ===== Button Style Variants ===== */
-    .btn {
-      display: block;
-      text-align: center;
-      font-size: 1.1em;
-      text-decoration: none;
-      padding: 16px;
-      font-weight: 600;
-      border-radius: 14px;
-      color: #fff;
-      transition: 0.3s;
-    }
-    .btn-purple  { background: #8e44ad; }
-    .btn-blue    { background: #2980b9; }
-    .btn-green   { background: #27ae60; }
-    .btn-orange  { background: #e67e22; }
-    .btn-red     { background: #c0392b; }
-    .btn-pink    { background: #e84393; }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      text-align: center;
-      padding: 14px;
-      font-size: 0.9em;
-      background: #121212;
-      color: #aaa;
-    }
-
-  </style>
+  /* ===== Footer ===== */
+  footer {
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9em;
+    background: #121212;
+    color: #ccc;
+  }
+</style>
 </head>
 <body>
 
-  <header>CuanGaming 🎮</header>
+<header>CuanGaming 🎮</header>
 
-  <div class="container">
-    <a href="#" class="btn btn-purple">💰 Topup Game 24/7</a>
-    <a href="#" class="btn btn-blue">📱 Beli UGPhone</a>
-    <a href="#" class="btn btn-green">🌐 Link Komunitas</a>
-    <a href="#" class="btn btn-orange">📺 Channel‑Channel</a>
-    <a href="#" class="btn btn-red">✅ Validasi Rekening</a>
-    <a href="#" class="btn btn-pink">⚠️ List Penipu</a>
-    <a href="#" class="btn btn-blue">📝 Testimoni</a>
-    <a href="#" class="btn btn-green">🎓 Edukasi</a>
-    <a href="#" class="btn btn-orange">🤝 Daftar Reseller</a>
+<div class="hero">
+  <h2>Top Up Game & Digital Marketplace</h2>
+</div>
+
+<div class="nav-buttons">
+  <a href="#">💰 Topup Game 24/7</a>
+  <a href="#">📱 Beli UGPhone</a>
+  <a href="#">🌐 Komunitas</a>
+  <a href="#">📺 Channel</a>
+  <a href="#">⚠️ List Penipu</a>
+  <a href="#">📝 Testimoni</a>
+  <a href="#">🎓 Edukasi</a>
+  <a href="#">🤝 Daftar Reseller</a>
+</div>
+
+<h3 style="padding: 0 15px;">Kategori & Game Populer</h3>
+<div class="games">
+  <div>
+    <img src="https://images.pexels.com/photos/275033/pexels-photo-275033.jpeg" alt="Mobile Legends">
+    <p>Mobile Legends</p>
   </div>
+  <div>
+    <img src="https://images.pexels.com/photos/4425761/pexels-photo-4425761.jpeg" alt="Free Fire">
+    <p>Free Fire</p>
+  </div>
+  <div>
+    <img src="https://images.pexels.com/photos/394565/pexels-photo-394565.jpeg" alt="PUBG Mobile">
+    <p>PUBG Mobile</p>
+  </div>
+  <div>
+    <img src="https://images.pexels.com/photos/7567455/pexels-photo-7567455.jpeg" alt="Genshin Impact">
+    <p>Genshin Impact</p>
+  </div>
+  <div>
+    <img src="https://images.pexels.com/photos/11332712/pexels-photo-11332712.jpeg" alt="Steam Wallet">
+    <p>Steam Wallet</p>
+  </div>
+  <div>
+    <img src="https://images.pexels.com/photos/394566/pexels-photo-394566.jpeg" alt="Voucher PSN">
+    <p>Voucher PSN</p>
+  </div>
+</div>
 
-  <footer>© 2025 CuanGaming. All rights reserved.</footer>
+<footer>© 2025 CuanGaming. All rights reserved.</footer>
 
 </body>
 </html>
