@@ -24,18 +24,25 @@
   header .logo img {
     height: 48px;
     width: auto;
+    filter: brightness(1.5); /* membuat logo lebih cerah/putih */
   }
 
-  header .contact-button {
+  header .header-buttons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .header-buttons a {
     background: linear-gradient(45deg, #ff6a00, #ee0979);
-    padding: 10px 18px;
+    padding: 8px 16px;
     border-radius: 12px;
     color: #fff;
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s;
   }
-  header .contact-button:hover {
+
+  .header-buttons a:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   }
@@ -54,26 +61,30 @@
     color: #fff;
   }
 
-  /* NAVIGATION BUTTONS */
+  /* NAVIGATION BUTTONS GRID */
   .nav-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
     padding: 15px;
-    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-items: center;
   }
+
   .nav-buttons a {
-    flex: 1 1 140px;
     background: linear-gradient(45deg, #ff6a00, #ee0979);
     color: #fff;
-    padding: 14px 0;
+    padding: 12px 0;
     border-radius: 14px;
     text-align: center;
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s;
     box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    width: 140px;
   }
+
   .nav-buttons a:hover {
     transform: scale(1.07);
     box-shadow: 0 6px 12px rgba(0,0,0,0.5);
@@ -113,14 +124,15 @@
   }
 
   /* RESPONSIVE HEADER */
-  @media(max-width: 500px) {
+  @media(max-width: 600px) {
     header {
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
     }
-    header .contact-button {
-      align-self: flex-end;
+    header .header-buttons {
+      width: 100%;
+      justify-content: space-between;
     }
   }
 </style>
@@ -131,7 +143,10 @@
   <div class="logo">
     <img src="https://raw.githubusercontent.com/cuangaming/funbot/dc61f0c64c1f1be8a9ce1d60147948214cb34931/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo">
   </div>
-  <a href="#" class="contact-button">Hubungi Kami</a>
+  <div class="header-buttons">
+    <a href="#">Daftar Reseller</a>
+    <a href="#">Hubungi Kami</a>
+  </div>
 </header>
 
 <div class="hero">
@@ -139,15 +154,13 @@
 </div>
 
 <div class="nav-buttons">
-  <a href="https://www.cuangaming.store" target="_blank">💰 Topup Game</a>
+  <a href="https://www.cuangaming.store" target="_blank">💰 Topup Game 24/7</a>
   <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank">📱 Beli UGPhone</a>
-<a href="komunitas.html">🌐 Komunitas</a>
-  <a href="#">📺 Channels</a>
-  <a href="#">✅ Validasi Rekening</a>
-  <a href="#">⚠️ List Penipu</a>
+  <a href="#">🤝 Partner Cuan Gaming</a>
+  <a href="komunitas.html">🌐 Komunitas</a>
   <a href="#">📝 Testimoni</a>
   <a href="#">🎓 Edukasi</a>
-  <a href="#">🤝 Daftar Reseller</a>
+  <a href="#">⚠️ List Penipu</a>
 </div>
 
 <div class="threads">
@@ -173,7 +186,3 @@
 
 </body>
 </html>
-
-
-
-
