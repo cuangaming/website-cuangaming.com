@@ -8,11 +8,10 @@
   body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: #ffffff; /* Background putih */
+    background: #ffffff;
     color: #1a1a3f;
   }
 
-  /* HEADER */
   header {
     background: #ffffff;
     display: flex;
@@ -33,7 +32,7 @@
   }
 
   .header-buttons a {
-    background: #1a1a3f; /* Monochrome dark */
+    background: #1a1a3f;
     padding: 8px 16px;
     border-radius: 12px;
     color: #fff;
@@ -47,7 +46,6 @@
     background: #333366;
   }
 
-  /* HERO FULL WIDTH */
   .hero {
     width: 100%;
     height: 400px;
@@ -67,7 +65,7 @@
     transform: translateY(-30%);
   }
 
-  /* FEATURE BUTTONS MONOCHROME 3 BARIS */
+  /* Tombol grid 3 per baris */
   .feature-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -76,7 +74,7 @@
   }
 
   .feature-card {
-    background: #1a1a3f; /* Monochrome dark */
+    background: #1a1a3f;
     color: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -90,12 +88,16 @@
     gap: 8px;
   }
 
+  .feature-card img {
+    width: 24px;
+    height: 24px;
+  }
+
   .feature-card:hover {
     background: #333366;
     transform: scale(1.05);
   }
 
-  /* THREADS SECTION */
   .threads {
     padding: 15px;
   }
@@ -125,7 +127,6 @@
     color: #555;
   }
 
-  /* FOOTER */
   footer {
     text-align: center;
     padding: 12px;
@@ -135,7 +136,6 @@
     border-top: 1px solid #ddd;
   }
 
-  /* RESPONSIVE */
   @media(max-width: 900px) {
     .feature-cards {
       grid-template-columns: repeat(2, 1fr);
@@ -179,19 +179,37 @@
   <h2>Komunitas & Forum Jual Beli Cuan Gaming</h2>
 </div>
 
-<!-- Tombol monochrome 3 baris -->
+<!-- Tombol monochrome dengan icon PNG -->
 <div class="feature-cards">
-  <a href="https://www.cuangaming.store" target="_blank" class="feature-card">💰 Topup Game 24/7</a>
-  <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank" class="feature-card">📱 Beli UGPhone</a>
-  <a href="#" class="feature-card">🤝 Partner Cuan Gaming</a>
+  <a href="https://www.cuangaming.store" target="_blank" class="feature-card">
+    <img src="/icons/topup.png" alt="Topup Game"> Topup Game 24/7
+  </a>
+  <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank" class="feature-card">
+    <img src="/icons/ugphone.png" alt="UGPhone"> Beli UGPhone
+  </a>
+  <a href="#" class="feature-card">
+    <img src="/icons/partner.png" alt="Partner"> Partner Cuan Gaming
+  </a>
 
-  <a href="komunitas.html" class="feature-card">🌐 Komunitas</a>
-  <a href="#" class="feature-card">📝 Testimoni</a>
-  <a href="#" class="feature-card">🎓 Edukasi</a>
+  <a href="komunitas.html" class="feature-card">
+    <img src="/icons/community.png" alt="Komunitas"> Komunitas
+  </a>
+  <a href="#" class="feature-card">
+    <img src="/icons/testimoni.png" alt="Testimoni"> Testimoni
+  </a>
+  <a href="#" class="feature-card">
+    <img src="/icons/education.png" alt="Edukasi"> Edukasi
+  </a>
 
-  <a href="#" class="feature-card">⚠️ List Penipu</a>
-  <a href="#" class="feature-card">📌 Lainnya</a>
-  <a href="#" class="feature-card">💡 Tips</a>
+  <a href="#" class="feature-card">
+    <img src="/icons/scammer.png" alt="List Penipu"> List Penipu
+  </a>
+  <a href="#" class="feature-card">
+    <img src="/icons/other.png" alt="Lainnya"> Lainnya
+  </a>
+  <a href="#" class="feature-card">
+    <img src="/icons/tips.png" alt="Tips"> Tips
+  </a>
 </div>
 
 <div class="threads">
