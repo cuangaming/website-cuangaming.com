@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CuanGaming • Testimoni</title>
 <style>
-/* ===== Reset & Font ===== */
 * {box-sizing:border-box;margin:0;padding:0;}
 body {font-family:"Poppins", sans-serif;background:#fff;color:#1a1a3f;}
 
@@ -34,43 +33,34 @@ header .logo img { height: 48px; width: auto; }
 /* ===== Facebook Embed ===== */
 .fb-embed iframe { width:100%; border:none; overflow:hidden; }
 
-/* ===== Carousel ===== */
+/* ===== Carousel Grid 2x2 ===== */
 .carousel-wrapper {
-  width: 100%;
-  max-width: 400px; /* square */
-  height: 400px; /* square */
-  overflow:hidden;
-  margin-bottom:20px;
-  border-radius:10px;
-  border:1px solid #ddd;
-}
-.carousel-slide {
-  display:flex;
-  flex-direction:column;
-  height:100%;
-  transition: transform 0.5s ease-in-out;
+  width: 420px; /* 2 kolom x 200 + gap */
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(2, 200px);
+  gap: 10px;
+  margin-bottom: 20px;
 }
 .carousel-item {
-  flex:0 0 100%;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  padding:15px;
+  padding:10px;
   background:#f8f8f8;
-  border-bottom:1px solid #ddd;
+  border-radius:8px;
   text-align:center;
-  height:100%;
-  box-sizing:border-box;
-  border-radius:10px;
+  font-size:0.85rem;
+  border:1px solid #ddd;
+  overflow:hidden;
 }
-.carousel-item:last-child { border-bottom:none; }
 
 /* ===== Form ===== */
 form {
-  display:flex; flex-direction:column;
-  max-width:400px; /* jangan full stretch */
-  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  max-width:420px; /* sama dengan carousel */
 }
 form input, form textarea {
   margin:5px 0; padding:10px; font-size:1rem; border:1px solid #ccc; border-radius:4px;
@@ -90,9 +80,9 @@ form button:hover { background:#333366; }
 
 /* ===== Mobile ===== */
 @media(max-width:768px){
-  .row { flex-direction:column; }
-  .carousel-wrapper, form { max-width:100%; height:auto; }
-  .carousel-item { height:auto; }
+  .row { flex-direction:column; align-items:center; }
+  .carousel-wrapper, form { max-width:100%; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap:10px; }
+  .carousel-item { width:100%; height:auto; }
 }
 </style>
 </head>
@@ -110,7 +100,6 @@ form button:hover { background:#333366; }
 
 <div class="container">
 
-  <!-- Row utama: Facebook kiri | Carousel & Form kanan -->
   <div class="row">
     <!-- Kiri: Facebook Embed -->
     <div class="col fb-embed">
@@ -118,14 +107,12 @@ form button:hover { background:#333366; }
         width="100%" height="631" scrolling="no" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- Kanan: Carousel atas + Form bawah -->
+    <!-- Kanan: Carousel 2x2 + Form -->
     <div class="col">
-      <!-- Carousel Testimoni -->
-      <div class="carousel-wrapper">
-        <div class="carousel-slide" id="carouselSlide"></div>
-      </div>
+      <!-- Carousel 2x2 -->
+      <div class="carousel-wrapper" id="carouselWrapper"></div>
 
-      <!-- Form Kirim Testimoni -->
+      <!-- Form -->
       <form id="formTestimoni" onsubmit="tambahTestimoni(); return false;">
         <input type="text" id="nama" placeholder="Nama kamu" required>
         <textarea id="komentar" placeholder="Tulis testimoni" required></textarea>
@@ -149,26 +136,36 @@ form button:hover { background:#333366; }
 </div>
 
 <script>
-// Fetch dan render carousel testimoni
-const carouselSlide = document.getElementById('carouselSlide');
+const carouselWrapper = document.getElementById('carouselWrapper');
+let carouselData = [];
+let carouselIndex = 0;
+
+// Fetch testimoni
 fetch('https://raw.githubusercontent.com/cuangaming/funbot/main/testimoni.json')
   .then(res => res.json())
   .then(data => {
-    data.forEach(t => {
-      const div = document.createElement('div');
-      div.className='carousel-item';
-      div.innerHTML=`<strong>${t.nama}</strong><p>${t.komen}</p>`;
-      carouselSlide.appendChild(div);
-    });
-
-    // Carousel auto slide (vertikal)
-    let idx = 0;
-    const totalItems = data.length;
-    setInterval(()=>{
-      idx = (idx+1) % totalItems;
-      carouselSlide.style.transform = `translateY(-${idx*100}%)`;
-    },5000);
+    carouselData = data;
+    renderCarousel();
+    setInterval(nextCarousel, 5000);
   });
+
+// Render 4 testimoni per slide
+function renderCarousel(){
+  carouselWrapper.innerHTML = '';
+  for(let i=0;i<4;i++){
+    const item = carouselData[(carouselIndex+i) % carouselData.length];
+    const div = document.createElement('div');
+    div.className='carousel-item';
+    div.innerHTML=`<strong>${item.nama}</strong><p>${item.komen}</p>`;
+    carouselWrapper.appendChild(div);
+  }
+}
+
+// Next slide
+function nextCarousel(){
+  carouselIndex = (carouselIndex + 4) % carouselData.length;
+  renderCarousel();
+}
 
 // Submit testimoni
 function tambahTestimoni(){
