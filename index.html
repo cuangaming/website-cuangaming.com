@@ -8,11 +8,12 @@
   body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: #0e0e15;
+    /* Background keseluruhan mirip cuangaming.store */
+    background: linear-gradient(135deg, #0b0b16 0%, #1a1a3f 90%);
     color: #fff;
   }
 
-  /* HEADER PUTIH */
+  /* HEADER */
   header {
     background: #ffffff;
     display: flex;
@@ -55,9 +56,13 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
-    font-size: 2.4em;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  }
+
+  .hero h2 {
+    font-size: 2.6em;
+    font-weight: bold;                 /* Bold */
+    color: rgba(255, 255, 255, 0.8);    /* warna abu‑abu 80% */
+    text-shadow: 0px 2px 8px rgba(0,0,0,0.7);
   }
 
   /* NAVIGATION BUTTONS 2 BARIS */
@@ -96,6 +101,7 @@
   .threads {
     padding: 15px;
   }
+
   .thread {
     background: #1e1e38;
     padding: 14px 16px;
@@ -103,13 +109,16 @@
     margin-bottom: 12px;
     transition: 0.2s;
   }
+
   .thread:hover {
     background: #2a2a52;
   }
+
   .thread h3 {
     margin: 0;
     font-size: 1.15em;
   }
+
   .thread p {
     margin: 4px 0 0;
     font-size: 0.9em;
@@ -142,9 +151,8 @@
       align-items: center;
     }
 
-    .hero {
+    .hero h2 {
       font-size: 1.8em;
-      height: 300px;
     }
   }
 </style>
@@ -162,7 +170,7 @@
 </header>
 
 <div class="hero">
-  Komunitas & Forum Jual Beli Cuan Gaming
+  <h2>Komunitas & Forum Jual Beli Cuan Gaming</h2>
 </div>
 
 <div class="nav-buttons">
@@ -185,18 +193,6 @@
   <div class="thread">
     <h3>🌟 Selamat datang di Forum CuanGaming!</h3>
     <p>oleh Admin • 10 menit lalu</p>
-  </div>
-  <div class="thread">
-    <h3>🛡️ Tips Aman Topup Game</h3>
-    <p>oleh GamerUser • 22 menit lalu</p>
-  </div>
-  <div class="thread">
-    <h3>📢 Validasi Rekening & Laporan Penipu</h3>
-    <p>oleh Moderator • 45 menit lalu</p>
-  </div>
-  <div class="thread">
-    <h3>📝 Testimoni Pengguna CuanGaming</h3>
-    <p>oleh Player123 • 1 jam lalu</p>
   </div>
 </div>
 
