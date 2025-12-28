@@ -15,7 +15,7 @@
   .fb-embed { max-width:900px; margin:30px auto; }
   .carousel-container { max-width:900px; margin:30px auto; overflow:hidden; }
   .carousel-slide { display:flex; transition:transform 0.5s ease-in-out; }
-  .testimoni-card { flex:0 0 50%; padding:20px; }
+  .testimoni-card { flex:0 0 50%; padding:20px; box-sizing:border-box; }
   .card-inner { background:#fefefe; border-radius:20px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.15); height:100%; }
   .card-inner p { margin-bottom:10px; } .card-inner span { font-weight:700; color:#001f4d; }
 
@@ -25,7 +25,6 @@
   .feature-card span { font-weight:700; color:#001f4d; text-align:center; font-size:1.1em; }
   .feature-card:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.25); }
 
-  /* Form tambah testimoni */
   .add-testimoni { max-width:600px; margin:30px auto; padding:20px; background:#fefefe; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
   .add-testimoni h3 { margin-top:0; }
   .add-testimoni input, .add-testimoni textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; font-size:1em; }
@@ -49,7 +48,13 @@
 
 <!-- Embed Facebook -->
 <div class="fb-embed">
-  <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" width="100%" height="650" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+  <iframe 
+    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" 
+    width="100%" 
+    height="650" 
+    style="border:none;overflow:hidden" 
+    scrolling="no" frameborder="0" allowfullscreen="true">
+  </iframe>
 </div>
 
 <!-- Carousel testimoni -->
@@ -95,7 +100,7 @@
     slide.style.transform = `translateX(-${currentIndex * 50}%)`;
   }, 5000);
 
-  // Fungsi tambah testimoni (dummy untuk HTML statis)
+  // Fungsi tambah testimoni (sementara di browser saja)
   function tambahTestimoni() {
     const nama = document.getElementById('nama').value;
     const komentar = document.getElementById('komentar').value;
