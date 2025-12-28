@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CuanGaming • Store</title>
+<title>CuanGaming • Forum</title>
 <style>
   body {
     margin: 0;
@@ -11,78 +11,85 @@
     background: #0f0f15;
     color: #fff;
   }
-  /* ===== Header ===== */
+
   header {
     background: linear-gradient(90deg, #4b1fbe, #2fa8e6);
-    padding: 18px;
+    padding: 20px;
     text-align: center;
-    font-size: 2.2em;
+    font-size: 2em;
     font-weight: bold;
   }
-  /* ===== Hero Banner ===== */
+
   .hero {
-    background-image: url('https://images.pexels.com/photos/394568/pexels-photo-394568.jpeg');
-    background-size: cover;
-    background-position: center;
-    height: 280px;
+    background: url('https://images.pexels.com/photos/394568/pexels-photo-394568.jpeg') center/cover no-repeat;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 0 0 10px #000;
+    text-shadow: 0 0 8px #000;
   }
+
   .hero h2 {
-    font-size: 3em;
+    font-size: 2.2em;
     color: #fff;
   }
 
-  /* ===== Navigation Buttons ===== */
   .nav-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     padding: 15px;
     justify-content: center;
   }
+
   .nav-buttons a {
-    background: #ff4d4d;
+    background: linear-gradient(45deg, #ff4d4d, #ff904d);
     padding: 12px 18px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-decoration: none;
     color: #fff;
     font-weight: 600;
-    flex: 1 1 150px;
+    flex: 1 1 140px;
     text-align: center;
     transition: 0.3s;
   }
+
   .nav-buttons a:hover {
-    background: #ff1a1a;
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   }
 
-  /* ===== Game Category Grid ===== */
-  .games {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
+  /* Forum thread list */
+  .threads {
     padding: 15px;
   }
-  .games img {
-    width: 100%;
-    border-radius: 12px;
+  .thread {
+    background: #1a1a2e;
+    padding: 14px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
   }
-  .games p {
-    text-align: center;
+  .thread:hover {
+    background: #2c2c44;
+  }
+  .thread h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+  }
+  .thread p {
+    margin: 0;
     font-size: 0.9em;
-    margin-top: 6px;
+    color: #ccc;
   }
 
-  /* ===== Footer ===== */
   footer {
     text-align: center;
     padding: 12px;
     font-size: 0.9em;
     background: #121212;
-    color: #ccc;
+    color: #aaa;
   }
 </style>
 </head>
@@ -91,45 +98,37 @@
 <header>CuanGaming 🎮</header>
 
 <div class="hero">
-  <h2>Top Up Game & Digital Marketplace</h2>
+  <h2>Forum & Komunitas Gaming 24/7</h2>
 </div>
 
 <div class="nav-buttons">
-  <a href="#">💰 Topup Game 24/7</a>
+  <a href="#">💰 Topup Game</a>
   <a href="#">📱 Beli UGPhone</a>
   <a href="#">🌐 Komunitas</a>
   <a href="#">📺 Channel</a>
+  <a href="#">✅ Validasi Rekening</a>
   <a href="#">⚠️ List Penipu</a>
   <a href="#">📝 Testimoni</a>
   <a href="#">🎓 Edukasi</a>
   <a href="#">🤝 Daftar Reseller</a>
 </div>
 
-<h3 style="padding: 0 15px;">Kategori & Game Populer</h3>
-<div class="games">
-  <div>
-    <img src="https://images.pexels.com/photos/275033/pexels-photo-275033.jpeg" alt="Mobile Legends">
-    <p>Mobile Legends</p>
+<div class="threads">
+  <div class="thread">
+    <h3>Tips aman topup game</h3>
+    <p>oleh Admin • 5 menit lalu</p>
   </div>
-  <div>
-    <img src="https://images.pexels.com/photos/4425761/pexels-photo-4425761.jpeg" alt="Free Fire">
-    <p>Free Fire</p>
+  <div class="thread">
+    <h3>UGPhone terbaru tersedia!</h3>
+    <p>oleh Member123 • 10 menit lalu</p>
   </div>
-  <div>
-    <img src="https://images.pexels.com/photos/394565/pexels-photo-394565.jpeg" alt="PUBG Mobile">
-    <p>PUBG Mobile</p>
+  <div class="thread">
+    <h3>Validasi rekening & laporan penipu</h3>
+    <p>oleh Moderator • 30 menit lalu</p>
   </div>
-  <div>
-    <img src="https://images.pexels.com/photos/7567455/pexels-photo-7567455.jpeg" alt="Genshin Impact">
-    <p>Genshin Impact</p>
-  </div>
-  <div>
-    <img src="https://images.pexels.com/photos/11332712/pexels-photo-11332712.jpeg" alt="Steam Wallet">
-    <p>Steam Wallet</p>
-  </div>
-  <div>
-    <img src="https://images.pexels.com/photos/394566/pexels-photo-394566.jpeg" alt="Voucher PSN">
-    <p>Voucher PSN</p>
+  <div class="thread">
+    <h3>Testimoni user CuanGaming</h3>
+    <p>oleh GamerX • 1 jam lalu</p>
   </div>
 </div>
 
