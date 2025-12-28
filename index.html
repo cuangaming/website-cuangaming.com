@@ -8,7 +8,7 @@
   body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: #ffffff; /* Background putih keseluruhan */
+    background: #ffffff; /* Background putih */
     color: #1a1a3f;
   }
 
@@ -67,31 +67,38 @@
     transform: translateY(-30%);
   }
 
-  /* FEATURE BUTTONS ala Fonnte */
-  .feature-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    padding: 25px 15px;
+  /* FEATURE CARDS 3 PER BARIS */
+  .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 25px;
+    justify-items: center;
   }
 
-  .feature-btn {
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+    padding: 20px;
     background: linear-gradient(45deg, #ff6a00, #ee0979);
+    border-radius: 12px;
     color: #fff;
-    padding: 12px 22px;
-    border-radius: 14px;
     font-weight: 600;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
     transition: 0.3s;
+    text-align: center;
   }
 
-  .feature-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  .feature-card .icon {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+
+  .feature-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   }
 
   /* THREADS SECTION */
@@ -146,9 +153,8 @@
       justify-content: space-between;
     }
 
-    .feature-buttons {
-      flex-direction: column;
-      align-items: center;
+    .feature-cards {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
 
     .hero h2 {
@@ -173,15 +179,36 @@
   <h2>Komunitas & Forum Jual Beli Cuan Gaming</h2>
 </div>
 
-<!-- Tombol fitur ala Fonnte -->
-<div class="feature-buttons">
-  <a href="https://www.cuangaming.store" target="_blank" class="feature-btn">💰 Topup Game 24/7</a>
-  <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank" class="feature-btn">📱 Beli UGPhone</a>
-  <a href="#" class="feature-btn">🤝 Partner Cuan Gaming</a>
-  <a href="komunitas.html" class="feature-btn">🌐 Komunitas</a>
-  <a href="#" class="feature-btn">📝 Testimoni</a>
-  <a href="#" class="feature-btn">🎓 Edukasi</a>
-  <a href="#" class="feature-btn">⚠️ List Penipu</a>
+<!-- Tombol ala Fonnte 3 per baris -->
+<div class="feature-cards">
+  <a href="https://www.cuangaming.store" target="_blank" class="feature-card">
+    <div class="icon">💰</div>
+    <div class="label">Topup Game 24/7</div>
+  </a>
+  <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank" class="feature-card">
+    <div class="icon">📱</div>
+    <div class="label">Beli UGPhone</div>
+  </a>
+  <a href="#" class="feature-card">
+    <div class="icon">🤝</div>
+    <div class="label">Partner Cuan Gaming</div>
+  </a>
+  <a href="komunitas.html" class="feature-card">
+    <div class="icon">🌐</div>
+    <div class="label">Komunitas</div>
+  </a>
+  <a href="#" class="feature-card">
+    <div class="icon">📝</div>
+    <div class="label">Testimoni</div>
+  </a>
+  <a href="#" class="feature-card">
+    <div class="icon">🎓</div>
+    <div class="label">Edukasi</div>
+  </a>
+  <a href="#" class="feature-card">
+    <div class="icon">⚠️</div>
+    <div class="label">List Penipu</div>
+  </a>
 </div>
 
 <div class="threads">
