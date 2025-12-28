@@ -8,104 +8,102 @@
   body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: #0f0f15;
+    background: #0e0e15;
     color: #fff;
   }
-
+  /* HEADER + HERO */
   header {
-    background: linear-gradient(90deg, #4b1fbe, #2fa8e6);
-    padding: 20px;
-    text-align: center;
+    background: linear-gradient(90deg, #0d0d26, #1a1a3f);
+    padding: 18px;
     font-size: 2em;
     font-weight: bold;
+    text-align: center;
   }
-
   .hero {
-    background: url('https://images.pexels.com/photos/394568/pexels-photo-394568.jpeg') center/cover no-repeat;
-    height: 200px;
+    height: 240px;
+    background: url("https://images.pexels.com/photos/1171573/pexels-photo-1171573.jpeg") center/cover no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-shadow: 0 0 8px #000;
+    justify-content: center;
+    text-shadow: 0 2px 6px #000;
   }
-
   .hero h2 {
-    font-size: 2.2em;
+    font-size: 2.4em;
     color: #fff;
   }
 
+  /* NAVIGATION BUTTONS */
   .nav-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     padding: 15px;
     justify-content: center;
   }
-
   .nav-buttons a {
-    background: linear-gradient(45deg, #ff4d4d, #ff904d);
-    padding: 12px 18px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
     flex: 1 1 140px;
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    color: #fff;
+    padding: 14px 0;
+    border-radius: 14px;
     text-align: center;
+    font-weight: 600;
+    text-decoration: none;
     transition: 0.3s;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
   }
-
   .nav-buttons a:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transform: scale(1.07);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.5);
   }
 
-  /* Forum thread list */
+  /* THREADS SECTION */
   .threads {
     padding: 15px;
   }
   .thread {
-    background: #1a1a2e;
-    padding: 14px;
-    margin-bottom: 10px;
+    background: #1e1e38;
+    padding: 14px 16px;
     border-radius: 10px;
+    margin-bottom: 12px;
     transition: 0.2s;
-    cursor: pointer;
   }
   .thread:hover {
-    background: #2c2c44;
+    background: #2a2a52;
   }
   .thread h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.1em;
+    margin: 0;
+    font-size: 1.15em;
   }
   .thread p {
-    margin: 0;
+    margin: 4px 0 0;
     font-size: 0.9em;
     color: #ccc;
   }
 
+  /* FOOTER */
   footer {
     text-align: center;
     padding: 12px;
-    font-size: 0.9em;
-    background: #121212;
+    font-size: 0.85em;
+    background: #12121f;
     color: #aaa;
   }
 </style>
 </head>
 <body>
 
-<header>CuanGaming 🎮</header>
+<header>CuanGaming 🎮 Forum</header>
 
 <div class="hero">
-  <h2>Forum & Komunitas Gaming 24/7</h2>
+  <h2>Komunitas & Diskusi Gaming!</h2>
 </div>
 
 <div class="nav-buttons">
   <a href="#">💰 Topup Game</a>
   <a href="#">📱 Beli UGPhone</a>
   <a href="#">🌐 Komunitas</a>
-  <a href="#">📺 Channel</a>
+  <a href="#">📺 Channels</a>
   <a href="#">✅ Validasi Rekening</a>
   <a href="#">⚠️ List Penipu</a>
   <a href="#">📝 Testimoni</a>
@@ -115,20 +113,20 @@
 
 <div class="threads">
   <div class="thread">
-    <h3>Tips aman topup game</h3>
-    <p>oleh Admin • 5 menit lalu</p>
+    <h3>🌟 Selamat datang di Forum CuanGaming!</h3>
+    <p>oleh Admin • 10 menit lalu</p>
   </div>
   <div class="thread">
-    <h3>UGPhone terbaru tersedia!</h3>
-    <p>oleh Member123 • 10 menit lalu</p>
+    <h3>🛡️ Tips Aman Topup Game</h3>
+    <p>oleh GamerUser • 22 menit lalu</p>
   </div>
   <div class="thread">
-    <h3>Validasi rekening & laporan penipu</h3>
-    <p>oleh Moderator • 30 menit lalu</p>
+    <h3>📢 Validasi Rekening & Laporan Penipu</h3>
+    <p>oleh Moderator • 45 menit lalu</p>
   </div>
   <div class="thread">
-    <h3>Testimoni user CuanGaming</h3>
-    <p>oleh GamerX • 1 jam lalu</p>
+    <h3>📝 Testimoni Pengguna CuanGaming</h3>
+    <p>oleh Player123 • 1 jam lalu</p>
   </div>
 </div>
 
