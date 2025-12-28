@@ -14,9 +14,9 @@
   .fb-embed, .carousel-container {flex:1 1 300px;margin:10px;}
   iframe {width:100%;border:none;overflow:hidden;}
 
-  .carousel {max-height:500px;overflow:hidden;position:relative;}
+  .carousel {overflow:hidden;position:relative;}
   .carousel-slide {display:flex;transition:transform 0.5s ease-in-out;}
-  .carousel-item {min-width:100%;box-sizing:border-box;padding:10px;text-align:left;background:#f8f8f8;margin-bottom:5px;border-radius:5px;}
+  .carousel-item {min-width:50%;box-sizing:border-box;padding:10px;text-align:left;background:#f8f8f8;margin:5px;border-radius:5px;}
 
   form {margin-top:10px;display:flex;flex-direction:column;}
   form input, form textarea {margin:5px 0;padding:8px;font-size:1rem;border:1px solid #ccc;border-radius:4px;}
@@ -24,14 +24,17 @@
   form button:hover {background:#003366;}
 
   .footer-icons {display:flex;flex-wrap:wrap;justify-content:center;margin:20px 0;}
-  .footer-icons .func-btn {width:45%;min-width:120px;margin:10px;text-align:center;cursor:pointer;transition:transform 0.2s;}
-  .footer-icons .func-btn img {width:80px;height:80px;display:block;margin:0 auto;}
+  .footer-icons .func-btn {width:240px;height:240px;margin:10px;text-align:center;cursor:pointer;transition:transform 0.2s;}
+  .footer-icons .func-btn img {width:240px;height:240px;display:block;margin:0 auto;}
   .footer-icons .func-btn span {display:block;margin-top:5px;font-weight:bold;color:#001f3f;}
-  .footer-icons .func-btn:hover {transform:scale(1.1);}
+  .footer-icons .func-btn:hover {transform:scale(1.05);}
 
   @media (max-width:768px){
     .testi-section {flex-direction:column;}
-    .footer-icons .func-btn {width:45%;}
+    .carousel-item {min-width:100%;}
+    .footer-icons {flex-direction:row;justify-content:space-around;}
+    .footer-icons .func-btn {width:45%;height:auto;}
+    .footer-icons .func-btn img {width:100%;height:auto;}
   }
 </style>
 </head>
@@ -46,12 +49,16 @@
 </header>
 
 <div class="testi-section">
+  <!-- Facebook embed kiri -->
   <div class="fb-embed">
     <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" width="100%" height="631" scrolling="no" frameborder="0" allowfullscreen></iframe>
   </div>
 
+  <!-- Carousel + form kanan -->
   <div class="carousel-container">
-    <div class="carousel" id="carousel"></div>
+    <div class="carousel" id="carousel">
+      <div class="carousel-slide" id="carouselSlide"></div>
+    </div>
 
     <form id="formTestimoni" onsubmit="tambahTestimoni(); return false;">
       <input type="text" id="nama" placeholder="Nama kamu" required>
@@ -61,14 +68,15 @@
   </div>
 </div>
 
+<!-- Footer icon 2 -->
 <div class="footer-icons">
   <div class="func-btn"><img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png"><span>Topup Game 24/7</span></div>
   <div class="func-btn"><img src="https://raw.githubusercontent.com/cuangaming/funbot/main/ugphone.png"><span>Beli UGPhone</span></div>
 </div>
 
 <script>
-  // Carousel testimoni dari JSON
-  let carousel = document.getElementById('carousel');
+  // Load testimoni dari JSON
+  const carouselSlide = document.getElementById('carouselSlide');
   fetch('https://raw.githubusercontent.com/cuangaming/funbot/main/testimoni.json')
     .then(res => res.json())
     .then(data => {
@@ -76,16 +84,21 @@
         let div = document.createElement('div');
         div.className='carousel-item';
         div.innerHTML=`<strong>${t.nama}</strong><p>${t.komen}</p>`;
-        carousel.appendChild(div);
+        carouselSlide.appendChild(div);
       });
+
+      // Slider otomatis
       let idx=0;
+      const itemsPerSlide = 2;
+      const totalItems = data.length;
       setInterval(()=>{
-        carousel.style.transform=`translateX(-${idx*100}%)`;
-        idx=(idx+1)%data.length;
+        let shift = Math.floor(idx) * 100 / itemsPerSlide;
+        carouselSlide.style.transform=`translateX(-${shift}%)`;
+        idx = (idx + itemsPerSlide) % totalItems;
       },5000);
     });
 
-  // Tambah testimoni POST ke backend Vercel
+  // Submit testimoni ke backend
   function tambahTestimoni(){
     const nama = document.getElementById('nama').value;
     const komentar = document.getElementById('komentar').value;
@@ -102,7 +115,7 @@
         alert(data.message);
         document.getElementById('nama').value='';
         document.getElementById('komentar').value='';
-      }else{
+      } else {
         alert('Gagal menambahkan testimoni!');
       }
     }).catch(err=>{
