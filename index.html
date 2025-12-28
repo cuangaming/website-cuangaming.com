@@ -47,7 +47,7 @@
     background: #333366;
   }
 
-  /* HERO FULL WIDTH */
+  /* HERO */
   .hero {
     width: 100%;
     height: 400px;
@@ -83,28 +83,39 @@
     transform: translateY(-30%);
   }
 
-  /* Tombol grid 3 per baris */
+  /* Tombol/icon grid */
   .feature-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 25px;
+    justify-items: center;
+    text-align: center;
   }
 
   .feature-card {
-    background: #1a1a3f;
-    color: #fff;
-    border-radius: 10px;
-    padding: 18px;
-    text-align: center;
-    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-    transition: 0.3s;
+    transition: transform 0.3s;
+  }
+
+  .feature-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    object-fit: contain;
+  }
+
+  .feature-card span {
+    font-weight: 600;
+    color: #001f4d;
     font-size: 1em;
+    text-align: center;
   }
 
   .feature-card:hover {
-    background: #333366;
     transform: scale(1.05);
   }
 
@@ -178,7 +189,7 @@
 
 <header>
   <div class="logo">
-    <img src="https://raw.githubusercontent.com/cuangaming/funbot/dc61f0c64c1f1be8a9ce1d60147948214cb34931/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo">
   </div>
   <div class="header-buttons">
     <a href="#">Daftar Reseller</a>
@@ -194,17 +205,44 @@
 </div>
 
 <div class="feature-cards">
-  <a href="https://www.cuangaming.store" target="_blank" class="feature-card">Topup Game 24/7</a>
-  <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank" class="feature-card">Beli UGPhone</a>
-  <a href="#" class="feature-card">Partner Cuan Gaming</a>
+  <a href="https://www.cuangaming.store" target="_blank" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png" alt="Topup Game">
+    <span>Topup Game 24/7</span>
+  </a>
+  <a href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/ugphone.png" alt="UGPhone">
+    <span>Beli UGPhone</span>
+  </a>
+  <a href="#" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/partner.png" alt="Partner">
+    <span>Partner Cuan Gaming</span>
+  </a>
 
-  <a href="komunitas.html" class="feature-card">Komunitas</a>
-  <a href="#" class="feature-card">Testimoni</a>
-  <a href="#" class="feature-card">Edukasi</a>
+  <a href="komunitas.html" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/komunitas.png" alt="Komunitas">
+    <span>Komunitas</span>
+  </a>
+  <a href="#" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/testimoni.png" alt="Testimoni">
+    <span>Testimoni</span>
+  </a>
+  <a href="#" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/edukasi.png" alt="Edukasi">
+    <span>Edukasi</span>
+  </a>
 
-  <a href="#" class="feature-card">List Penipu</a>
-  <a href="#" class="feature-card">Lainnya</a>
-  <a href="#" class="feature-card">Tips</a>
+  <a href="#" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/penipu.png" alt="List Penipu">
+    <span>List Penipu</span>
+  </a>
+  <a href="#" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/lainnya.png" alt="Lainnya">
+    <span>Lainnya</span>
+  </a>
+  <a href="#" class="feature-card">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/tips.png" alt="Tips">
+    <span>Tips</span>
+  </a>
 </div>
 
 <div class="threads">
