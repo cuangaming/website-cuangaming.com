@@ -5,68 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CuanGaming</title>
   <style>
+
+    /* ===== Body & Typography ===== */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0e0e0e;
-      color: #fff;
       margin: 0;
-      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: #111;
+      color: #fff;
     }
     header {
-      background-color: #1f1f1f;
-      padding: 20px;
       text-align: center;
-      font-size: 2em;
-      font-weight: bold;
-      letter-spacing: 1px;
+      padding: 25px;
+      font-size: 2.2em;
+      font-weight: 700;
+      background: linear-gradient(90deg, #4b1fbe, #2fa8e6);
     }
+
+    /* ===== Container ===== */
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
+      padding: 20px;
     }
-    .button {
-      width: 90%;
-      max-width: 400px;
-      padding: 15px 20px;
-      background-color: #ff4d4d;
-      color: #fff;
-      font-size: 1.1em;
+
+    /* ===== Button Style Variants ===== */
+    .btn {
+      display: block;
       text-align: center;
-      border-radius: 10px;
+      font-size: 1.1em;
       text-decoration: none;
+      padding: 16px;
+      font-weight: 600;
+      border-radius: 14px;
+      color: #fff;
       transition: 0.3s;
     }
-    .button:hover {
-      background-color: #ff1a1a;
+    .btn-purple  { background: #8e44ad; }
+    .btn-blue    { background: #2980b9; }
+    .btn-green   { background: #27ae60; }
+    .btn-orange  { background: #e67e22; }
+    .btn-red     { background: #c0392b; }
+    .btn-pink    { background: #e84393; }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
+
+    /* ===== Footer ===== */
     footer {
       text-align: center;
-      padding: 15px;
+      padding: 14px;
       font-size: 0.9em;
+      background: #121212;
       color: #aaa;
-      background-color: #1f1f1f;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
     }
+
   </style>
 </head>
 <body>
-  <header>CuanGaming</header>
+
+  <header>CuanGaming 🎮</header>
+
   <div class="container">
-    <a href="#" class="button">💰 Topup Game 24/7</a>
-    <a href="#" class="button">📱 Beli UGPhone</a>
-    <a href="#" class="button">🌐 Link Komunitas Cuan Gaming</a>
-    <a href="#" class="button">📺 Channel-Channel Cuan Gaming</a>
-    <a href="#" class="button">✅ Validasi Rekening Cuan Gaming</a>
-    <a href="#" class="button">⚠️ List Penipu</a>
-    <a href="#" class="button">📝 Testimoni Cuan Gaming</a>
-    <a href="#" class="button">🎓 Edukasi</a>
-    <a href="#" class="button">🤝 Daftar Reseller</a>
+    <a href="#" class="btn btn-purple">💰 Topup Game 24/7</a>
+    <a href="#" class="btn btn-blue">📱 Beli UGPhone</a>
+    <a href="#" class="btn btn-green">🌐 Link Komunitas</a>
+    <a href="#" class="btn btn-orange">📺 Channel‑Channel</a>
+    <a href="#" class="btn btn-red">✅ Validasi Rekening</a>
+    <a href="#" class="btn btn-pink">⚠️ List Penipu</a>
+    <a href="#" class="btn btn-blue">📝 Testimoni</a>
+    <a href="#" class="btn btn-green">🎓 Edukasi</a>
+    <a href="#" class="btn btn-orange">🤝 Daftar Reseller</a>
   </div>
+
   <footer>© 2025 CuanGaming. All rights reserved.</footer>
+
 </body>
 </html>
