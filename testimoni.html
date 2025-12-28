@@ -3,72 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cuan Gaming - Testimoni</title>
+<title>CuanGaming • Testimoni</title>
 <style>
 /* ===== Reset & Font ===== */
 * {box-sizing:border-box;margin:0;padding:0;}
-body {font-family:Arial,sans-serif;background:#fff;color:#001f3f;}
+body {font-family:"Poppins", sans-serif;background:#fff;color:#1a1a3f;}
 
 /* ===== Header ===== */
-header {display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:#001f3f;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
-header img {height:50px;cursor:pointer;}
-header .buttons button {margin-left:10px;padding:5px 12px;font-size:0.9rem;cursor:pointer;background:#fff;color:#001f3f;border:none;border-radius:4px;transition:0.3s;}
-header .buttons button:hover {background:#003366;color:#fff;}
+header {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-bottom: 1px solid #ddd;
+}
+header .logo img { height: 48px; width: auto; }
+.header-buttons { display:flex; gap:10px; }
+.header-buttons a {
+  background: #1a1a3f; padding:6px 12px; border-radius:10px;
+  color:#fff; font-weight:600; font-size:0.85em; text-decoration:none; transition:0.3s;
+}
+.header-buttons a:hover { transform:scale(1.05); background:#333366; }
 
-/* ===== Container ===== */
-.container {max-width:1200px;margin:20px auto;padding:0 20px;}
-.row {display:flex;flex-wrap:wrap;gap:20px;}
-.col {flex:1 1 300px;}
+/* ===== Main Container ===== */
+.container { max-width:1200px; margin:20px auto; padding:0 16px; }
+.row { display:flex; flex-wrap:wrap; gap:20px; }
+.col { flex:1 1 300px; }
 
 /* ===== Facebook Embed ===== */
-.fb-embed iframe {width:100%;border:none;overflow:hidden;}
+.fb-embed iframe { width:100%; border:none; overflow:hidden; }
 
 /* ===== Carousel ===== */
-.carousel-wrapper {overflow:hidden;width:100%;position:relative;margin-bottom:20px;}
-.carousel-slide {display:flex;transition:transform 0.5s ease-in-out;}
-.carousel-item {flex:0 0 100%;box-sizing:border-box;padding:15px;background:#f8f8f8;margin-bottom:10px;border-radius:5px;text-align:left;}
+.carousel-wrapper { overflow:hidden; width:100%; position:relative; margin-bottom:20px; }
+.carousel-slide { display:flex; transition:transform 0.5s ease-in-out; }
+.carousel-item {
+  flex:0 0 100%;
+  box-sizing:border-box;
+  padding:15px;
+  background:#f8f8f8;
+  margin-bottom:10px;
+  border-radius:5px;
+  text-align:left;
+}
 
 /* ===== Form ===== */
-form {margin-top:10px;display:flex;flex-direction:column;}
-form input, form textarea {margin:5px 0;padding:10px;font-size:1rem;border:1px solid #ccc;border-radius:4px;}
-form button {padding:10px;background:#001f3f;color:#fff;border:none;border-radius:4px;cursor:pointer;transition:0.3s;}
-form button:hover {background:#003366;}
+form { display:flex; flex-direction:column; margin-top:10px; }
+form input, form textarea { margin:5px 0; padding:10px; font-size:1rem; border:1px solid #ccc; border-radius:4px; }
+form button { padding:10px; background:#1a1a3f; color:#fff; border:none; border-radius:4px; cursor:pointer; transition:0.3s; }
+form button:hover { background:#333366; }
 
 /* ===== Footer Icons ===== */
-.footer-icons {display:flex;flex-wrap:wrap;justify-content:center;margin:30px 0;gap:20px;}
-.footer-icons .func-btn {width:200px;height:200px;text-align:center;cursor:pointer;transition:transform 0.2s;}
-.footer-icons .func-btn img {width:100%;height:auto;display:block;margin:0 auto;}
-.footer-icons .func-btn span {display:block;margin-top:5px;font-weight:bold;color:#001f3f;}
-.footer-icons .func-btn:hover {transform:scale(1.05);}
+.footer-icons { display:flex; flex-wrap:wrap; justify-content:center; margin:30px 0; gap:20px; }
+.footer-icons .func-btn { width:200px; height:200px; text-align:center; cursor:pointer; transition:transform 0.2s; }
+.footer-icons .func-btn img { width:100%; height:auto; display:block; margin:0 auto; }
+.footer-icons .func-btn span { display:block; margin-top:5px; font-weight:700; color:#1a1a3f; }
+.footer-icons .func-btn:hover { transform:scale(1.05); }
 
 /* ===== Mobile ===== */
-@media (max-width:768px){
-  .row {flex-direction:column;}
-  .carousel-item {flex:0 0 100%;}
-  .footer-icons .func-btn {width:45%;height:auto;}
+@media(max-width:768px){
+  .row { flex-direction:column; }
+  .carousel-item { flex:0 0 100%; }
+  .footer-icons .func-btn { width:45%; height:auto; }
 }
 </style>
 </head>
 <body>
 
 <header>
-  <a href="index.html"><img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Gaming"></a>
-  <div class="buttons">
-    <button>Daftar Reseller</button>
-    <button>Hubungi Kami</button>
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo">
+  </div>
+  <div class="header-buttons">
+    <a href="#">Daftar Reseller</a>
+    <a href="#">Hubungi Kami</a>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- Baris utama: Facebook kiri | Carousel & Form kanan -->
+  <!-- Row utama: Facebook kiri | Carousel & Form kanan -->
   <div class="row">
     <!-- Kiri: Facebook Embed -->
     <div class="col fb-embed">
-      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" width="100%" height="631" scrolling="no" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500"
+        width="100%" height="631" scrolling="no" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- Kanan: Carousel + Form -->
+    <!-- Kanan: Carousel atas + Form bawah -->
     <div class="col">
       <!-- Carousel Testimoni -->
       <div class="carousel-wrapper">
@@ -86,11 +108,11 @@ form button:hover {background:#003366;}
 
   <!-- Footer Icons -->
   <div class="footer-icons">
-    <a class="func-btn" href="https://topup.cuangaming.com" target="_blank">
+    <a class="func-btn" href="https://www.cuangaming.store" target="_blank">
       <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png" alt="Topup Game 24/7">
       <span>Topup Game 24/7</span>
     </a>
-    <a class="func-btn" href="https://ugphone.cuangaming.com" target="_blank">
+    <a class="func-btn" href="https://api.whatsapp.com/send/?phone=6285158779301&text=stock&type=phone_number&app_absent=0" target="_blank">
       <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/ugphone.png" alt="Beli UGPhone">
       <span>Beli UGPhone</span>
     </a>
@@ -99,6 +121,7 @@ form button:hover {background:#003366;}
 </div>
 
 <script>
+// Fetch dan render carousel testimoni
 const carouselSlide = document.getElementById('carouselSlide');
 fetch('https://raw.githubusercontent.com/cuangaming/funbot/main/testimoni.json')
   .then(res => res.json())
@@ -112,12 +135,9 @@ fetch('https://raw.githubusercontent.com/cuangaming/funbot/main/testimoni.json')
 
     // Carousel auto slide
     let idx = 0;
-    const itemsPerSlide = 1; // 1 item per slide
     const totalItems = data.length;
-    const totalSlides = totalItems;
-
     setInterval(()=>{
-      idx = (idx+1) % totalSlides;
+      idx = (idx+1) % totalItems;
       carouselSlide.style.transform = `translateX(-${idx*100}%)`;
     },5000);
   });
