@@ -12,7 +12,6 @@
     color: #1a1a3f;
   }
 
-  /* HEADER */
   header {
     background: #ffffff;
     display: flex;
@@ -83,12 +82,12 @@
     transform: translateY(-30%);
   }
 
-  /* Tombol/icon grid */
+  /* Tombol/icon grid besar & lucu */
   .feature-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 25px;
+    gap: 30px;
+    padding: 30px;
     justify-items: center;
     text-align: center;
   }
@@ -98,32 +97,34 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #fefefe;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
 
   .feature-card img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
+    width: 240px;  /* 3x lebih besar */
+    height: 240px;
+    margin-bottom: 15px;
     object-fit: contain;
   }
 
   .feature-card span {
-    font-weight: 600;
+    font-weight: 700;
     color: #001f4d;
-    font-size: 1em;
+    font-size: 1.2em;
     text-align: center;
   }
 
   .feature-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   }
 
-  /* THREADS SECTION */
-  .threads {
-    padding: 15px;
-  }
-
+  /* THREADS */
+  .threads { padding: 15px; }
   .thread {
     background: #f5f5f5;
     padding: 14px 16px;
@@ -132,22 +133,9 @@
     border: 1px solid #ddd;
     transition: 0.2s;
   }
-
-  .thread:hover {
-    background: #eaeaea;
-  }
-
-  .thread h3 {
-    margin: 0;
-    font-size: 1.15em;
-    color: #001f4d;
-  }
-
-  .thread p {
-    margin: 4px 0 0;
-    font-size: 0.9em;
-    color: #555;
-  }
+  .thread:hover { background: #eaeaea; }
+  .thread h3 { margin: 0; font-size: 1.15em; color: #001f4d; }
+  .thread p { margin: 4px 0 0; font-size: 0.9em; color: #555; }
 
   footer {
     text-align: center;
@@ -158,30 +146,12 @@
     border-top: 1px solid #ddd;
   }
 
-  @media(max-width: 900px) {
-    .feature-cards {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media(max-width: 600px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    header .header-buttons {
-      width: 100%;
-      justify-content: space-between;
-    }
-
-    .feature-cards {
-      grid-template-columns: 1fr;
-    }
-
-    .hero h2 {
-      font-size: 1.8em;
-    }
+  @media(max-width: 1200px) { .feature-card img { width: 180px; height: 180px; } }
+  @media(max-width: 900px) { .feature-cards { grid-template-columns: repeat(2, 1fr); } }
+  @media(max-width: 600px) { 
+    .feature-cards { grid-template-columns: 1fr; } 
+    .hero h2 { font-size: 1.8em; }
+    .feature-card img { width: 140px; height: 140px; }
   }
 </style>
 </head>
@@ -255,15 +225,13 @@
 <footer>© 2025 CuanGaming. All rights reserved.</footer>
 
 <script>
-  // Hero crossfade auto-slide
   const slides = document.querySelectorAll('.hero img');
   let currentSlide = 0;
-
   setInterval(() => {
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add('active');
-  }, 3000); // 3 detik per gambar
+  }, 3000);
 </script>
 
 </body>
