@@ -5,181 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CuanGaming • Testimoni</title>
 <style>
-  body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #ffffff;
-    color: #1a1a3f;
-  }
+  body { margin:0; font-family: "Poppins", sans-serif; background:#fff; color:#1a1a3f; }
+  header { display:flex; justify-content:space-between; align-items:center; padding:8px 16px; border-bottom:1px solid #ddd; }
+  header .logo img { height:48px; width:auto; }
+  .header-buttons { display:flex; gap:10px; }
+  .header-buttons a { background:#1a1a3f; padding:6px 12px; border-radius:10px; color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
+  .header-buttons a:hover { transform:scale(1.05); background:#333366; }
 
-  header {
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 16px;
-    border-bottom: 1px solid #ddd;
-  }
+  .fb-embed { max-width:900px; margin:30px auto; }
+  .carousel-container { max-width:900px; margin:30px auto; overflow:hidden; }
+  .carousel-slide { display:flex; transition:transform 0.5s ease-in-out; }
+  .testimoni-card { flex:0 0 50%; padding:20px; }
+  .card-inner { background:#fefefe; border-radius:20px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.15); height:100%; }
+  .card-inner p { margin-bottom:10px; } .card-inner span { font-weight:700; color:#001f4d; }
 
-  header .logo img { height: 48px; width: auto; }
+  .feature-cards { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; padding:20px; }
+  .feature-card { display:flex; flex-direction:column; align-items:center; text-decoration:none; transition:0.3s; background:#fefefe; padding:15px; border-radius:25px; box-shadow:0 4px 12px rgba(0,0,0,0.15); width:240px; }
+  .feature-card img { width:240px; height:240px; margin-bottom:10px; object-fit:contain; }
+  .feature-card span { font-weight:700; color:#001f4d; text-align:center; font-size:1.1em; }
+  .feature-card:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.25); }
 
-  header .header-buttons {
-    display: flex;
-    gap: 10px;
-  }
+  /* Form tambah testimoni */
+  .add-testimoni { max-width:600px; margin:30px auto; padding:20px; background:#fefefe; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+  .add-testimoni h3 { margin-top:0; }
+  .add-testimoni input, .add-testimoni textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; font-size:1em; }
+  .add-testimoni button { padding:10px 20px; background:#1a1a3f; color:#fff; border:none; border-radius:10px; font-weight:600; cursor:pointer; }
+  .add-testimoni button:hover { background:#333366; }
 
-  .header-buttons a {
-    background: #1a1a3f;
-    padding: 6px 12px;
-    border-radius: 10px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.85em;
-    text-decoration: none;
-    transition: 0.3s;
-  }
+  footer { text-align:center; padding:12px; font-size:0.85em; background:#f0f0f0; color:#777; border-top:1px solid #ddd; }
 
-  .header-buttons a:hover {
-    transform: scale(1.05);
-    background: #333366;
-  }
-
-  /* Carousel testimoni */
-  .carousel-container {
-    max-width: 900px;
-    margin: 30px auto;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .testimoni-card {
-    min-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    background: #fefefe;
-    margin: 0 10px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-
-  .testimoni-card p {
-    font-size: 1em;
-    line-height: 1.4em;
-    margin-bottom: 10px;
-  }
-
-  .testimoni-card span {
-    font-weight: 700;
-    color: #001f4d;
-  }
-
-  /* Tombol bawah carousel */
-  .feature-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 20px;
-  }
-
-  .feature-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: #fefefe;
-    padding: 15px;
-    border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    width: 240px;
-  }
-
-  .feature-card img {
-    width: 240px;
-    height: 240px;
-    margin-bottom: 10px;
-    object-fit: contain;
-  }
-
-  .feature-card span {
-    font-weight: 700;
-    color: #001f4d;
-    font-size: 1.1em;
-    text-align: center;
-  }
-
-  .feature-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  }
-
-  footer {
-    text-align: center;
-    padding: 12px;
-    font-size: 0.85em;
-    background: #f0f0f0;
-    color: #777;
-    border-top: 1px solid #ddd;
-  }
-
-  @media(max-width: 600px) {
-    header { flex-direction: row; justify-content: space-between; }
-    header .header-buttons { gap: 6px; }
-    .header-buttons a { padding: 5px 10px; font-size: 0.75em; }
-
-    .feature-card { width: 140px; height: auto; }
-    .feature-card img { width: 140px; height: 140px; }
-  }
+  @media(max-width:700px){ .testimoni-card{flex:0 0 100%;} .feature-card{width:140px;} .feature-card img{width:140px;height:140px;} }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo">
-  </div>
+  <div class="logo"><img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo"></div>
   <div class="header-buttons">
     <a href="#">Daftar Reseller</a>
     <a href="#">Hubungi Kami</a>
   </div>
 </header>
 
+<!-- Embed Facebook -->
+<div class="fb-embed">
+  <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500" width="100%" height="650" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+</div>
+
+<!-- Carousel testimoni -->
 <div class="carousel-container">
   <div class="carousel-slide">
-    <div class="testimoni-card">
-      <p>Pelayanan fast respon, ramah pokoknya terbestttt rekomended bgt</p>
-      <span>- Yurryansyah</span>
-    </div>
-    <div class="testimoni-card">
-      <p>Mantap dan terpercaya</p>
-      <span>- G Permana P</span>
-    </div>
-    <div class="testimoni-card">
-      <p>Fast respon sat set sudah langganan terima kasih....</p>
-      <span>- Rio SQuare Man</span>
-    </div>
-    <div class="testimoni-card">
-      <p>Best and fast ldc seller, buat yang bingung mau beli diman, beli disini saja ges dijamin aman cepat dan terpercaya 😘</p>
-      <span>- Elaine</span>
-    </div>
-    <div class="testimoni-card">
-      <p>Mantap si ceceh ini</p>
-      <span>- Derick Lie</span>
-    </div>
-    <div class="testimoni-card">
-      <p>Efek pelayanan yg baik pasti bakal jadi hal yg baik pula wkwk, mantap sih fast respon dan klo ada masalah sama Ldc kek nge bug dibantuin sampe kelar dan promo mulu wkwk</p>
-      <span>- Saddies Buddies</span>
-    </div>
-    <!-- Bisa tambahkan lebih banyak card testimoni -->
+    <div class="testimoni-card"><div class="card-inner"><p>Pelayanan fast respon, ramah pokoknya terbestttt rekomended bgt</p><span>- Yurryansyah</span></div></div>
+    <div class="testimoni-card"><div class="card-inner"><p>Mantap dan terpercaya</p><span>- G Permana P</span></div></div>
+    <div class="testimoni-card"><div class="card-inner"><p>Fast respon sat set sudah langganan terima kasih....</p><span>- Rio SQuare Man</span></div></div>
+    <div class="testimoni-card"><div class="card-inner"><p>Best and fast ldc seller, aman cepat dan terpercaya 😘</p><span>- Elaine</span></div></div>
   </div>
 </div>
 
+<!-- Tombol bawah carousel -->
 <div class="feature-cards">
   <a href="https://www.cuangaming.store" target="_blank" class="feature-card">
     <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png" alt="Topup Game">
@@ -191,17 +74,43 @@
   </a>
 </div>
 
+<!-- Form tambah testimoni -->
+<div class="add-testimoni">
+  <h3>Tambah Testimoni</h3>
+  <input type="text" id="nama" placeholder="Nama">
+  <textarea id="komentar" placeholder="Komentar" rows="4"></textarea>
+  <button onclick="tambahTestimoni()">Kirim Testimoni</button>
+</div>
+
 <footer>© 2025 CuanGaming. All rights reserved.</footer>
 
 <script>
+  // Carousel slide 2 per slide
   const slide = document.querySelector('.carousel-slide');
   const cards = document.querySelectorAll('.carousel-slide .testimoni-card');
   let currentIndex = 0;
-
   setInterval(() => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+    currentIndex += 2;
+    if(currentIndex >= cards.length) currentIndex = 0;
+    slide.style.transform = `translateX(-${currentIndex * 50}%)`;
   }, 5000);
+
+  // Fungsi tambah testimoni (dummy untuk HTML statis)
+  function tambahTestimoni() {
+    const nama = document.getElementById('nama').value;
+    const komentar = document.getElementById('komentar').value;
+    if(nama && komentar){
+      const div = document.createElement('div');
+      div.classList.add('testimoni-card');
+      div.innerHTML = `<div class="card-inner"><p>${komentar}</p><span>- ${nama}</span></div>`;
+      slide.appendChild(div);
+      document.getElementById('nama').value = '';
+      document.getElementById('komentar').value = '';
+      alert("Testimoni berhasil ditambahkan (sementara hanya di halaman ini)");
+    } else {
+      alert("Isi nama dan komentar terlebih dahulu!");
+    }
+  }
 </script>
 
 </body>
