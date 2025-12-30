@@ -12,14 +12,29 @@ body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb;padd
 /* DISCLAIMER */
 .disclaimer{
   background:#1e293b;
-  border-left:4px solid #facc15;
-  padding:12px 14px;
+  border-left:4px solid #f59e0b;
+  padding:14px;
   margin-bottom:20px;
   border-radius:6px;
   font-size:13px;
-  color:#e5e7eb
+  line-height:1.6
 }
-.disclaimer strong{color:#facc15}
+.disclaimer strong{color:#f59e0b}
+.disclaimer-actions{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap
+}
+.disclaimer-actions a{
+  text-decoration:none;
+  background:#38bdf8;
+  color:#020617;
+  padding:8px 12px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:bold
+}
 
 h1,h2{margin-bottom:10px}
 p{font-size:14px;color:#cbd5f5}
@@ -70,8 +85,13 @@ img{
 <!-- DISCLAIMER -->
 <div class="disclaimer">
   <strong>Disclaimer:</strong><br>
-  Informasi di halaman ini berasal dari laporan pengguna. Website tidak menyatakan kebenaran mutlak atas laporan ini.
-  Jika Anda merasa dirugikan, silakan hubungi kami untuk klarifikasi atau penghapusan data.
+  Setiap laporan merupakan klaim yang belum terbukti secara hukum. Website ini tidak menyatakan kebenaran materi laporan dan tidak bertanggung jawab atas konsekuensi legal atas klaim tersebut.
+  Jika Anda merasa disebutkan secara tidak benar, silakan kontak kami untuk klarifikasi atau permintaan penghapusan.
+
+  <div class="disclaimer-actions">
+    <a href="mailto:admin@cuangaming.com">📩 Hubungi Kami</a>
+    <a href="https://wa.me/6281234567890" target="_blank">📝 Request Klarifikasi</a>
+  </div>
 </div>
 
 <h1>⚠️ Laporan Transaksi Bermasalah</h1>
