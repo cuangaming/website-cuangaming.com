@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partner • CuanGaming</title>
+<title>Detail Partner • CuanGaming</title>
 
 <style>
   body {
@@ -34,77 +34,86 @@
   }
 
   .container {
-    max-width: 1100px;
+    max-width: 900px;
     margin: auto;
     padding: 30px 20px;
   }
 
-  h1 {
+  .partner-header {
     text-align: center;
-    color: #001f4d;
-    margin-bottom: 10px;
-  }
-
-  .subtitle {
-    text-align: center;
-    color: #555;
-    font-size: 0.95em;
     margin-bottom: 30px;
   }
 
-  .partner-section {
+  .partner-header img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+
+  .partner-header h1 {
+    margin: 0;
+    color: #001f4d;
+  }
+
+  .partner-role {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #555;
+    margin-top: 5px;
+  }
+
+  .section {
     margin-bottom: 35px;
   }
 
-  .partner-section h2 {
+  .section h2 {
     font-size: 1.3em;
     color: #001f4d;
     border-bottom: 2px solid #eee;
     padding-bottom: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
-  .partner-list {
+  .section p {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .contact-list {
+    font-size: 0.9em;
+  }
+
+  .contact-list a {
+    color: #1a1a3f;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .testimonial-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
   }
 
-  .partner-item {
+  .testimonial-item {
     background: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 15px;
-    text-align: center;
   }
 
-  .partner-item img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: 10px;
-  }
-
-  .partner-item h3 {
-    margin: 6px 0;
-    font-size: 1em;
-    color: #001f4d;
-  }
-
-  .partner-desc {
+  .testimonial-item p {
     font-size: 0.85em;
     color: #555;
     margin-bottom: 8px;
   }
 
-  .partner-contact {
+  .testimonial-author {
     font-size: 0.85em;
-  }
-
-  .partner-contact a {
-    color: #1a1a3f;
-    text-decoration: none;
     font-weight: 600;
+    color: #001f4d;
   }
 
   footer {
@@ -122,46 +131,61 @@
 
 <header>
   <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Gaming">
-  <a href="index.html">Home</a>
+  <a href="partner.html">Kembali</a>
 </header>
 
 <div class="container">
-  <h1>Partner Cuan Gaming</h1>
-  <div class="subtitle">
-    Partner resmi yang mendukung ekosistem komunitas & layanan Cuan Gaming
+
+  <!-- HEADER PARTNER -->
+  <div class="partner-header">
+    <img src="https://via.placeholder.com/160" alt="Nama Partner">
+    <h1>Nama Partner</h1>
+    <div class="partner-role">Partner Topup Game</div>
   </div>
 
-  <!-- SECTION PARTNER TOPUP -->
-  <div class="partner-section">
-    <h2>Partner Topup Game</h2>
-    <div class="partner-list">
-      <div class="partner-item">
-        <img src="https://via.placeholder.com/120" alt="Partner Topup">
-        <h3>Nama Partner</h3>
-        <div class="partner-desc">
-          Penyedia layanan topup game resmi, cepat, dan aman.
-        </div>
-        <div class="partner-contact">
-          Kontak: <a href="https://wa.me/628xxxxxxxxx" target="_blank">WhatsApp</a>
-        </div>
-      </div>
+  <!-- TENTANG PARTNER -->
+  <div class="section">
+    <h2>Tentang Partner</h2>
+    <p>
+      Nama Partner merupakan partner resmi Cuan Gaming yang bergerak di bidang
+      topup game dan layanan digital. Partner ini mendukung transaksi yang aman,
+      cepat, dan terpercaya untuk komunitas Cuan Gaming.
+    </p>
+  </div>
+
+  <!-- KONTAK -->
+  <div class="section">
+    <h2>Kontak & Informasi</h2>
+    <div class="contact-list">
+      WhatsApp: <a href="https://wa.me/628xxxxxxxxx" target="_blank">628xxxxxxxxx</a><br>
+      Instagram: <a href="#" target="_blank">@namapartner</a><br>
+      Website: <a href="#" target="_blank">www.namapartner.com</a>
     </div>
   </div>
 
-  <!-- SECTION PARTNER KOMUNITAS -->
-  <div class="partner-section">
-    <h2>Partner Komunitas</h2>
-    <div class="partner-list">
-      <div class="partner-item">
-        <img src="https://via.placeholder.com/120" alt="Partner Komunitas">
-        <h3>Nama Partner</h3>
-        <div class="partner-desc">
-          Mendukung pengembangan komunitas dan forum Cuan Gaming.
-        </div>
-        <div class="partner-contact">
-          Instagram: <a href="#" target="_blank">@partner</a>
+  <!-- TESTIMONI -->
+  <div class="section">
+    <h2>Testimoni</h2>
+    <div class="testimonial-list">
+
+      <div class="testimonial-item">
+        <p>
+          “Pelayanan cepat dan respon sangat ramah. Transaksi selalu aman.”
+        </p>
+        <div class="testimonial-author">
+          — Member Cuan Gaming
         </div>
       </div>
+
+      <div class="testimonial-item">
+        <p>
+          “Harga bersaing dan proses topup tidak pernah bermasalah.”
+        </p>
+        <div class="testimonial-author">
+          — Reseller
+        </div>
+      </div>
+
     </div>
   </div>
 
