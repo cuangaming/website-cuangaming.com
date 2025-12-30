@@ -1,192 +1,118 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Penipu | CuanGaming</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lapor & Cek Penipu | CuanGaming</title>
 
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      padding: 16px;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin-bottom: 6px;
-    }
-
-    p {
-      font-size: 14px;
-      color: #cbd5f5;
-      margin-bottom: 16px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-
-    .table-wrapper {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      min-width: 720px;
-      border-collapse: collapse;
-      background: #020617;
-    }
-
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #1e293b;
-      font-size: 13px;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    th {
-      color: #38bdf8;
-    }
-
-    tr:hover {
-      background: #020617cc;
-      cursor: pointer;
-    }
-
-    .badge {
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 11px;
-      color: #fff;
-    }
-
-    .verified {
-      background: #16a34a;
-    }
-
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-    }
-
-    .modal-content {
-      background: #020617;
-      padding: 16px;
-      border-radius: 10px;
-      max-width: 600px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .close {
-      float: right;
-      font-size: 18px;
-      color: #f87171;
-      cursor: pointer;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-top: 12px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      h1 { font-size: 18px; }
-      th, td { font-size: 12px; padding: 8px; }
-    }
-  </style>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb;padding:16px}
+h1,h2{margin-bottom:10px}
+p{font-size:14px;color:#cbd5f5}
+input,textarea,button{
+  width:100%;padding:12px;margin-bottom:10px;
+  border-radius:8px;border:none;font-size:14px
+}
+textarea{min-height:100px}
+button{background:#38bdf8;color:#020617;font-weight:bold;cursor:pointer}
+button:hover{opacity:.9}
+.section{margin-bottom:32px}
+.table-wrapper{overflow-x:auto}
+table{width:100%;min-width:720px;border-collapse:collapse;background:#020617}
+th,td{padding:10px;border-bottom:1px solid #1e293b;font-size:13px;text-align:left}
+th{color:#38bdf8}
+.badge{padding:4px 8px;border-radius:6px;font-size:11px;color:#fff}
+.pending{background:#eab308}
+@media(max-width:768px){
+  table{min-width:100%}
+  h1{font-size:20px}
+}
+</style>
 </head>
 
 <body>
 
-<h1>🚨 Daftar Penipu</h1>
-<p>Cek nomor HP, rekening, atau akun sebelum melakukan transaksi.</p>
+<h1>🚨 Lapor & Cek Penipu</h1>
+<p>Form laporan ini bersifat publik dan digunakan untuk edukasi.</p>
 
-<div class="search-box">
-  <input type="text" id="searchInput" placeholder="Cari nomor HP, rekening, atau akun...">
+<!-- FORM LAPOR -->
+<div class="section">
+<h2>📝 Form Lapor Penipu</h2>
+
+<form id="laporForm">
+  <input type="text" id="nomor_hp" placeholder="Nomor HP" required>
+  <input type="text" id="rekening" placeholder="Rekening / E-Wallet" required>
+  <input type="text" id="nama_akun" placeholder="Nama Akun (WA/Telegram/IG)" required>
+  <input type="text" id="nama_rekening" placeholder="Nama Pemilik Rekening" required>
+  <textarea id="kronologi" placeholder="Kronologi kejadian" required></textarea>
+  <button type="submit">Kirim Laporan</button>
+</form>
 </div>
+
+<!-- LIST PENIPU -->
+<div class="section">
+<h2>📋 Daftar Laporan</h2>
 
 <div class="table-wrapper">
 <table>
-  <thead>
-    <tr>
-      <th>No</th>
-      <th>Nomor HP</th>
-      <th>Rekening / E-Wallet</th>
-      <th>Nama Akun</th>
-      <th>Nama Rekening</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody id="penipuList">
-    <tr onclick="openModal()">
-      <td>1</td>
-      <td>08123456789</td>
-      <td>BCA 123456789</td>
-      <td>@penipu_judi</td>
-      <td>ANDI</td>
-      <td><span class="badge verified">VERIFIED</span></td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+  <th>No</th>
+  <th>Nomor HP</th>
+  <th>Rekening</th>
+  <th>Nama Akun</th>
+  <th>Nama Rekening</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody id="penipuList"></tbody>
 </table>
 </div>
-
-<!-- MODAL DETAIL -->
-<div class="modal" id="detailModal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">✖</span>
-    <h3>Detail Laporan Penipuan</h3>
-
-    <p><b>Nomor HP:</b> 08123456789</p>
-    <p><b>Rekening / E-Wallet:</b> BCA 123456789</p>
-    <p><b>Nama Akun:</b> @penipu_judi</p>
-    <p><b>Nama Rekening:</b> ANDI</p>
-
-    <p><b>Kronologi:</b><br>
-      Pelaku menawarkan akun VIP, meminta transfer, lalu memblokir korban.
-    </p>
-
-    <img src="bukti.jpg" alt="Bukti Penipuan">
-  </div>
 </div>
 
 <script>
-  // SEARCH
-  document.getElementById("searchInput").addEventListener("keyup", function () {
-    let filter = this.value.toLowerCase();
-    document.querySelectorAll("#penipuList tr").forEach(row => {
-      row.style.display = row.innerText.toLowerCase().includes(filter) ? "" : "none";
-    });
+let dataPenipu = JSON.parse(localStorage.getItem("dataPenipu")) || [];
+
+function renderTable(){
+  const tbody = document.getElementById("penipuList");
+  tbody.innerHTML = "";
+  dataPenipu.forEach((item,index)=>{
+    tbody.innerHTML += `
+      <tr>
+        <td>${index+1}</td>
+        <td>${item.nomor_hp}</td>
+        <td>${item.rekening}</td>
+        <td>${item.nama_akun}</td>
+        <td>${item.nama_rekening}</td>
+        <td><span class="badge pending">PENDING</span></td>
+      </tr>
+    `;
   });
+}
 
-  // MODAL
-  function openModal() {
-    document.getElementById("detailModal").style.display = "flex";
-  }
+document.getElementById("laporForm").addEventListener("submit",function(e){
+  e.preventDefault();
 
-  function closeModal() {
-    document.getElementById("detailModal").style.display = "none";
-  }
+  const laporan = {
+    nomor_hp: nomor_hp.value,
+    rekening: rekening.value,
+    nama_akun: nama_akun.value,
+    nama_rekening: nama_rekening.value,
+    kronologi: kronologi.value,
+    status: "pending",
+    created_at: new Date().toISOString()
+  };
+
+  dataPenipu.push(laporan);
+  localStorage.setItem("dataPenipu", JSON.stringify(dataPenipu));
+
+  this.reset();
+  renderTable();
+  alert("Laporan berhasil disimpan (JSON)");
+});
+
+renderTable();
 </script>
 
 </body>
