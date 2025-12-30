@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Penipu | CuanGaming</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 16px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #cbd5f5;
+      margin-bottom: 16px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      background: #020617;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #1e293b;
+      font-size: 13px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      color: #38bdf8;
+    }
+
+    tr:hover {
+      background: #020617cc;
+      cursor: pointer;
+    }
+
+    .badge {
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #fff;
+    }
+
+    .verified {
+      background: #16a34a;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .modal-content {
+      background: #020617;
+      padding: 16px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .close {
+      float: right;
+      font-size: 18px;
+      color: #f87171;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      h1 { font-size: 18px; }
+      th, td { font-size: 12px; padding: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🚨 Daftar Penipu</h1>
+<p>Cek nomor HP, rekening, atau akun sebelum melakukan transaksi.</p>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Cari nomor HP, rekening, atau akun...">
+</div>
+
+<div class="table-wrapper">
+<table>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Nomor HP</th>
+      <th>Rekening / E-Wallet</th>
+      <th>Nama Akun</th>
+      <th>Nama Rekening</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody id="penipuList">
+    <tr onclick="openModal()">
+      <td>1</td>
+      <td>08123456789</td>
+      <td>BCA 123456789</td>
+      <td>@penipu_judi</td>
+      <td>ANDI</td>
+      <td><span class="badge verified">VERIFIED</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- MODAL DETAIL -->
+<div class="modal" id="detailModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✖</span>
+    <h3>Detail Laporan Penipuan</h3>
+
+    <p><b>Nomor HP:</b> 08123456789</p>
+    <p><b>Rekening / E-Wallet:</b> BCA 123456789</p>
+    <p><b>Nama Akun:</b> @penipu_judi</p>
+    <p><b>Nama Rekening:</b> ANDI</p>
+
+    <p><b>Kronologi:</b><br>
+      Pelaku menawarkan akun VIP, meminta transfer, lalu memblokir korban.
+    </p>
+
+    <img src="bukti.jpg" alt="Bukti Penipuan">
+  </div>
+</div>
+
+<script>
+  // SEARCH
+  document.getElementById("searchInput").addEventListener("keyup", function () {
+    let filter = this.value.toLowerCase();
+    document.querySelectorAll("#penipuList tr").forEach(row => {
+      row.style.display = row.innerText.toLowerCase().includes(filter) ? "" : "none";
+    });
+  });
+
+  // MODAL
+  function openModal() {
+    document.getElementById("detailModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("detailModal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
