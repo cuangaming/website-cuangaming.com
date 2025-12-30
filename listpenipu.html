@@ -18,10 +18,28 @@ textarea{min-height:100px}
 button{background:#38bdf8;color:#020617;font-weight:bold;cursor:pointer}
 button:hover{opacity:.9}
 .section{margin-bottom:32px}
+.search-box input{margin-bottom:16px}
 .table-wrapper{overflow-x:auto}
-table{width:100%;min-width:720px;border-collapse:collapse;background:#020617}
+table{width:100%;min-width:900px;border-collapse:collapse;background:#020617}
 th,td{padding:10px;border-bottom:1px solid #1e293b;font-size:13px;text-align:left}
 th{color:#38bdf8}
+.link{color:#38bdf8;cursor:pointer;text-decoration:underline}
+
+/* MODAL */
+.modal{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.85);
+  justify-content:center;align-items:center;
+  padding:16px
+}
+.modal-content{
+  background:#020617;
+  padding:16px;border-radius:10px;
+  max-width:600px;width:100%;
+  max-height:90vh;overflow:auto
+}
+.close{float:right;font-size:18px;color:#f87171;cursor:pointer}
+
 @media(max-width:768px){
   table{min-width:100%}
   h1{font-size:20px}
@@ -32,12 +50,11 @@ th{color:#38bdf8}
 <body>
 
 <h1>🚨 Lapor & Cek Penipu</h1>
-<p>Isi laporan untuk berbagi informasi dan mencegah korban selanjutnya.</p>
+<p>Isi laporan dan gunakan pencarian untuk menghindari penipuan.</p>
 
 <!-- FORM -->
 <div class="section">
 <h2>📝 Form Lapor Penipu</h2>
-
 <form id="laporForm">
   <input type="text" id="nomor_hp" placeholder="Nomor HP" required>
   <input type="text" id="rekening" placeholder="Rekening / E-Wallet" required>
@@ -48,9 +65,13 @@ th{color:#38bdf8}
 </form>
 </div>
 
-<!-- LIST -->
+<!-- SEARCH + LIST -->
 <div class="section">
-<h2>📋 Daftar Laporan Penipu</h2>
+<h2>🔍 Cari & Lihat Laporan</h2>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Cari nomor HP, rekening, nama akun, atau kronologi...">
+</div>
 
 <div class="table-wrapper">
 <table>
@@ -61,11 +82,21 @@ th{color:#38bdf8}
   <th>Rekening</th>
   <th>Nama Akun</th>
   <th>Nama Rekening</th>
+  <th>Kronologi</th>
 </tr>
 </thead>
 <tbody id="penipuList"></tbody>
 </table>
 </div>
+</div>
+
+<!-- MODAL KRONOLOGI -->
+<div class="modal" id="detailModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✖</span>
+    <h3>Detail Kronologi</h3>
+    <p id="detailText"></p>
+  </div>
 </div>
 
 <script>
@@ -75,6 +106,10 @@ function renderTable(){
   const tbody = document.getElementById("penipuList");
   tbody.innerHTML = "";
   dataPenipu.forEach((item,index)=>{
+    const ringkas = item.kronologi.length > 40
+      ? item.kronologi.substring(0,40) + "..."
+      : item.kronologi;
+
     tbody.innerHTML += `
       <tr>
         <td>${index+1}</td>
@@ -82,11 +117,30 @@ function renderTable(){
         <td>${item.rekening}</td>
         <td>${item.nama_akun}</td>
         <td>${item.nama_rekening}</td>
+        <td><span class="link" onclick="openModal('${item.kronologi.replace(/'/g,"")}')">Lihat</span></td>
       </tr>
     `;
   });
 }
 
+// SEARCH
+document.getElementById("searchInput").addEventListener("keyup",function(){
+  const filter = this.value.toLowerCase();
+  document.querySelectorAll("#penipuList tr").forEach(row=>{
+    row.style.display = row.innerText.toLowerCase().includes(filter) ? "" : "none";
+  });
+});
+
+// MODAL
+function openModal(text){
+  document.getElementById("detailText").innerText = text;
+  document.getElementById("detailModal").style.display = "flex";
+}
+function closeModal(){
+  document.getElementById("detailModal").style.display = "none";
+}
+
+// SUBMIT
 document.getElementById("laporForm").addEventListener("submit",function(e){
   e.preventDefault();
 
