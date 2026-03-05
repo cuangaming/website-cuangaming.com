@@ -57,26 +57,27 @@ background:#333366;
 /* ===== CONTAINER ===== */
 
 .container{
-max-width:1200px;
-margin:30px auto;
+max-width:900px;
+margin:40px auto;
 padding:0 16px;
-}
-
-.row{
-display:flex;
-flex-wrap:wrap;
-gap:25px;
 }
 
 /* ===== FACEBOOK EMBED ===== */
 
+.fb-embed{
+display:flex;
+justify-content:center;
+margin-bottom:30px;
+}
+
 .fb-embed iframe{
-width:100%;
+width:700px;
+max-width:100%;
 border:none;
 border-radius:10px;
 }
 
-/* ===== CARD BOX ===== */
+/* ===== TESTIMONI CARD ===== */
 
 .card{
 background:rgba(255,255,255,0.9);
@@ -89,7 +90,6 @@ border-radius:14px;
 .carousel-wrapper{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-grid-template-rows:repeat(2,1fr);
 gap:10px;
 margin-bottom:20px;
 }
@@ -138,49 +138,25 @@ form button:hover{
 background:#333366;
 }
 
-/* ===== ICON MENU ===== */
+/* ===== FOOTER ===== */
 
-.footer-icons{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-margin:40px 0;
-}
-
-.func-btn{
-width:160px;
+footer{
 text-align:center;
-transition:0.2s;
-}
-
-.func-btn img{
-width:100%;
-border-radius:12px;
-}
-
-.func-btn span{
-display:block;
-margin-top:5px;
-font-weight:700;
-color:#fff;
-text-shadow:1px 1px 4px rgba(0,0,0,0.7);
-}
-
-.func-btn:hover{
-transform:scale(1.05);
+padding:12px;
+font-size:.85em;
+background:rgba(255,255,255,0.8);
+color:#777;
+border-top:1px solid #ddd;
+border-radius:10px;
+margin:20px;
 }
 
 /* ===== MOBILE ===== */
 
 @media(max-width:768px){
 
-.row{
-flex-direction:column;
-}
-
 .carousel-wrapper{
-grid-template-columns:1fr 1fr;
+grid-template-columns:1fr;
 }
 
 }
@@ -207,15 +183,19 @@ grid-template-columns:1fr 1fr;
 
 <div class="container">
 
-<div class="row">
+<!-- FACEBOOK POST -->
+<div class="fb-embed">
 
-<!-- FACEBOOK -->
-<div class="card fb-embed">
-<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500"
-height="630" scrolling="no"></iframe>
+<iframe
+src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flidwinalaurenza%2Fposts%2Fpfbid026DmJ4XZUPwWrbAz7nWdDHjdsmMJoBTZTQspzjkLRk7T3VCK16Bgz4NZcSef3y4xTl&show_text=true&width=500"
+height="630"
+scrolling="no">
+</iframe>
+
 </div>
 
 <!-- TESTIMONI + FORM -->
+
 <div class="card">
 
 <div class="carousel-wrapper" id="carouselWrapper"></div>
@@ -230,23 +210,9 @@ height="630" scrolling="no"></iframe>
 
 </div>
 
-<!-- MENU ICON -->
-
-<div class="footer-icons">
-
-<a class="func-btn" href="https://www.cuangaming.store" target="_blank">
-<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png">
-<span>Topup Game 24/7</span>
-</a>
-
-<a class="func-btn" href="ugphone.html">
-<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/ugphone.png">
-<span>Beli UGPhone</span>
-</a>
-
-</div>
-
-</div>
+<footer>
+© 2025 CuanGaming. All rights reserved.
+</footer>
 
 <script>
 
