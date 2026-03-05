@@ -51,68 +51,33 @@ transform:scale(1.05);
 background:#333366;
 }
 
-/* HERO VIDEO */
+/* HERO VIDEO BANNER */
 
 .hero{
 width:100%;
 height:300px;
 position:relative;
+overflow:hidden;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-overflow:hidden;
 }
 
 .hero video{
-position:absolute;
-top:0;
-left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-z-index:0;
 }
 
-/* overlay gelap */
-
-.hero::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.25);
-z-index:1;
-}
-
-/* slider gambar */
-
-.hero img{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0;
-transition:opacity 1s ease-in-out;
-z-index:1;
-}
-
-.hero img.active{
-opacity:1;
-}
+/* text di atas video */
 
 .hero h2{
-position:relative;
+position:absolute;
+color:#fff;
 font-size:2em;
 font-weight:bold;
-color:#ffffff;
-text-shadow:1px 1px 4px rgba(0,0,0,0.6);
-z-index:2;
-transform:translateY(-20%);
+text-shadow:2px 2px 6px rgba(0,0,0,0.6);
 }
 
 /* MENU */
@@ -215,6 +180,14 @@ width:100px;
 height:100px;
 }
 
+.hero{
+height:220px;
+}
+
+.hero h2{
+font-size:1.4em;
+}
+
 }
 
 </style>
@@ -235,17 +208,13 @@ height:100px;
 
 </header>
 
+<!-- VIDEO BANNER -->
+
 <div class="hero">
 
 <video autoplay muted loop playsinline>
 <source src="https://raw.githubusercontent.com/cuangaming/funbot/main/welcome%20moving.mp4" type="video/mp4">
 </video>
-
-<img src="https://raw.githubusercontent.com/cuangaming/funbot/230c0e3ea04a0eae80e0d416a03f562ad693fe1e/rox.jpg" class="active">
-
-<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/roblox.jpg">
-
-<img src="https://raw.githubusercontent.com/cuangaming/funbot/76747803e86e98a7f82961bd2460275c48ba4e30/BP.jpg">
 
 <h2>Komunitas & Forum Jual Beli Cuan Gaming</h2>
 
@@ -310,24 +279,6 @@ height:100px;
 <footer>
 © 2025 CuanGaming. All rights reserved.
 </footer>
-
-<script>
-
-const slides=document.querySelectorAll('.hero img')
-
-let currentSlide=0
-
-setInterval(()=>{
-
-slides[currentSlide].classList.remove('active')
-
-currentSlide=(currentSlide+1)%slides.length
-
-slides[currentSlide].classList.add('active')
-
-},3000)
-
-</script>
 
 </body>
 </html>
