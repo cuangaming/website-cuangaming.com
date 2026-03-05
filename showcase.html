@@ -1,0 +1,53 @@
+<div id="showcase"></div>
+
+<script>
+
+async function loadShowcase(){
+
+const { data } = await supabase
+.from("showcase")
+.select("*")
+.order("created_at",{ascending:false})
+
+const container=document.getElementById("showcase")
+
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="card">
+
+${item.status==="sold" ? '<div class="sold">SOLD</div>' : ''}
+
+<img src="${item.gambar}">
+
+<h3>${item.nama_barang}</h3>
+
+<p>${item.harga}</p>
+
+<a href="${item.kontak}" target="_blank">Kontak</a>
+
+<button onclick="sold(${item.id})">Tandai SOLD</button>
+
+</div>
+
+`
+
+})
+
+}
+
+async function sold(id){
+
+await supabase
+.from("showcase")
+.update({status:"sold"})
+.eq("id",id)
+
+location.reload()
+
+}
+
+loadShowcase()
+
+</script>
