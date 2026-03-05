@@ -7,51 +7,63 @@
 
 <style>
 
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-  margin:0;
-  font-family:"Poppins",sans-serif;
+  font-family:"Poppins", sans-serif;
   background:url('https://raw.githubusercontent.com/cuangaming/funbot/main/testimonicuan.jpg') no-repeat center center fixed;
   background-size:cover;
   color:#1a1a3f;
 }
 
-/* HEADER */
+/* ===== Header (sama seperti testimoni) ===== */
 
 header{
-  background:rgba(255,255,255,0.85);
+  background:rgba(255,255,255,0.8);
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:8px 16px;
   border-bottom:1px solid #ddd;
   border-radius:10px;
-  margin:10px;
 }
 
-header img{
+header .logo img{
   height:48px;
+  width:auto;
+  cursor:pointer;
 }
 
-.header-btn{
+.header-buttons{
+  display:flex;
+  gap:10px;
+}
+
+.header-buttons a{
   background:#1a1a3f;
   padding:6px 12px;
   border-radius:10px;
   color:#fff;
-  font-size:.85em;
+  font-weight:600;
+  font-size:0.85em;
   text-decoration:none;
+  transition:0.3s;
 }
 
-/* CONTAINER */
+.header-buttons a:hover{
+  transform:scale(1.05);
+  background:#333366;
+}
+
+/* ===== Container ===== */
 
 .container{
   max-width:900px;
-  margin:auto;
-  padding:30px 20px;
+  margin:30px auto;
+  padding:0 16px;
 }
 
-/* CARD */
+/* ===== Partner Card ===== */
 
 .partner-card{
   background:rgba(255,255,255,0.9);
@@ -106,17 +118,17 @@ header img{
   text-decoration:none;
 }
 
-/* FOOTER */
+/* ===== Footer ===== */
 
 footer{
   text-align:center;
   padding:12px;
   font-size:.85em;
-  background:rgba(255,255,255,0.85);
+  background:rgba(255,255,255,0.8);
   color:#777;
   border-top:1px solid #ddd;
   border-radius:10px;
-  margin:10px;
+  margin:20px;
 }
 
 </style>
@@ -126,16 +138,20 @@ footer{
 
 <header>
 
+<div class="logo">
 <a href="index.html">
-<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="CuanGaming">
+<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo">
 </a>
+</div>
 
-<a href="index.html" class="header-btn">Kembali</a>
+<div class="header-buttons">
+<a href="https://www.facebook.com/lidwinalaurenza/subscribe">Daftar Reseller</a>
+<a href="hubungi.html">Hubungi Kami</a>
+</div>
 
 </header>
 
 <div class="container">
-
 
 <!-- ================= PARTNER 1 ================= -->
 
@@ -182,7 +198,6 @@ Discord :
 </div>
 
 
-
 <!-- ================= PARTNER 2 ================= -->
 
 <div class="partner-card">
@@ -226,7 +241,6 @@ Discord :
 </div>
 
 </div>
-
 
 </div>
 
