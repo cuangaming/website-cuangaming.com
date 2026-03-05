@@ -8,36 +8,93 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb;padding:16px}
+
 .disclaimer{
-  background:#1e293b;
-  border-left:4px solid #f59e0b;
-  padding:14px;margin-bottom:20px;border-radius:6px;font-size:13px
+background:#1e293b;
+border-left:4px solid #f59e0b;
+padding:14px;
+margin-bottom:20px;
+border-radius:6px;
+font-size:13px
 }
+
 h1,h2{margin-bottom:10px}
+
 p{font-size:14px;color:#cbd5f5}
+
 input,textarea,select,button{
-  width:100%;padding:12px;margin-bottom:10px;
-  border-radius:8px;border:none;font-size:14px
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border-radius:8px;
+border:none;
+font-size:14px
 }
+
 textarea{min-height:100px}
-button{background:#38bdf8;color:#020617;font-weight:bold;cursor:pointer}
+
+button{
+background:#38bdf8;
+color:#020617;
+font-weight:bold;
+cursor:pointer
+}
+
 button:hover{opacity:.9}
+
 .section{margin-bottom:32px}
+
 .table-wrapper{overflow-x:auto}
-table{width:100%;min-width:900px;border-collapse:collapse;background:#020617}
-th,td{padding:10px;border-bottom:1px solid #1e293b;font-size:13px;text-align:left}
+
+table{
+width:100%;
+min-width:900px;
+border-collapse:collapse;
+background:#020617
+}
+
+th,td{
+padding:10px;
+border-bottom:1px solid #1e293b;
+font-size:13px;
+text-align:left
+}
+
 th{color:#38bdf8}
-img{max-width:100px;border-radius:6px;cursor:pointer}
+
+img{
+max-width:100px;
+border-radius:6px;
+cursor:pointer
+}
+
 .modal{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.85);
-  justify-content:center;align-items:center;padding:16px
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+padding:16px
 }
+
 .modal-content{
-  background:#020617;padding:16px;border-radius:10px;
-  max-width:700px;width:100%;max-height:90vh;overflow:auto
+background:#020617;
+padding:16px;
+border-radius:10px;
+max-width:700px;
+width:100%;
+max-height:90vh;
+overflow:auto
 }
-.close{float:right;font-size:18px;color:#f87171;cursor:pointer}
+
+.close{
+float:right;
+font-size:18px;
+color:#f87171;
+cursor:pointer
+}
+
 </style>
 </head>
 
@@ -46,13 +103,14 @@ img{max-width:100px;border-radius:6px;cursor:pointer}
 <div class="disclaimer">
 <strong>Disclaimer:</strong><br>
 Setiap laporan merupakan klaim yang belum terbukti secara hukum. Website ini tidak menyatakan kebenaran materi laporan dan tidak bertanggung jawab atas konsekuensi legal atas klaim tersebut.
-  Jika Anda merasa disebutkan secara tidak benar, silakan kontak kami untuk klarifikasi atau perminta
+Jika Anda merasa disebutkan secara tidak benar, silakan kontak kami untuk klarifikasi atau permintaan penghapusan laporan.
 </div>
 
 <h1>⚠️ Laporan Transaksi Bermasalah</h1>
 <p>Laporan untuk tujuan informasi dan kewaspadaan.</p>
 
 <div class="section">
+
 <h2>📝 Form Laporan</h2>
 
 <form id="laporForm">
@@ -76,12 +134,15 @@ Setiap laporan merupakan klaim yang belum terbukti secara hukum. Website ini tid
 <button type="submit">Kirim Laporan</button>
 
 </form>
+
 </div>
 
 <div class="section">
+
 <h2>📋 Daftar Laporan</h2>
 
 <div class="table-wrapper">
+
 <table>
 
 <thead>
@@ -97,7 +158,9 @@ Setiap laporan merupakan klaim yang belum terbukti secara hukum. Website ini tid
 <tbody id="listTransaksi"></tbody>
 
 </table>
+
 </div>
+
 </div>
 
 <div class="modal" id="fotoModal">
@@ -115,8 +178,19 @@ const supabaseUrl = "https://dooqhxywmjwtlsodgplz.supabase.co";
 const supabaseKey = "sb_publishable_CkbvV7KamxpSa8aPFWK-gw_pim1oq1V";
 
 const { createClient } = supabase;
-
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
+
+
+
+function maskData(text){
+
+if(!text) return "-";
+
+if(text.length <= 4) return "****";
+
+return text.substring(0,4) + "****";
+
+}
 
 
 
@@ -125,6 +199,7 @@ async function renderTable(){
 const { data, error } = await supabaseClient
 .from("laporan")
 .select("*")
+.eq("status","approved")
 .order("created_at",{ascending:false});
 
 if(error){
@@ -145,7 +220,7 @@ tbody.innerHTML += `
 <tr>
 <td>${index+1}</td>
 <td>${item.platform}</td>
-<td>${item.nama_hp}</td>
+<td>${maskData(item.nama_hp)}</td>
 <td>${ringkas}</td>
 <td>${item.foto ? `<img src="${item.foto}" onclick="openFoto('${item.foto}')">` : '-'}</td>
 </tr>
@@ -197,20 +272,23 @@ const { error } = await supabaseClient
 platform: platform.value,
 nama_hp: nama_hp.value.trim(),
 kronologi: kronologi.value.trim(),
-foto: foto
+foto: foto,
+status: "pending"
 }]);
 
 if(error){
+
 alert("Gagal kirim laporan");
+
 console.error(error);
+
 return;
+
 }
 
 document.getElementById("laporForm").reset();
 
-alert("Laporan berhasil dikirim");
-
-renderTable();
+alert("Laporan berhasil dikirim dan sedang menunggu review admin.");
 
 }
 
@@ -223,6 +301,8 @@ document.getElementById("fotoPreview").src = src;
 document.getElementById("fotoModal").style.display="flex";
 
 }
+
+
 
 function closeFoto(){
 
