@@ -49,8 +49,6 @@ transform:scale(1.05);
 background:#333366;
 }
 
-/* HERO */
-
 .hero{
 width:100%;
 height:300px;
@@ -87,15 +85,18 @@ z-index:2;
 transform:translateY(-20%);
 }
 
-/* GRID MENU */
+/* MENU */
 
-.feature-cards{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
+.feature-section{
 padding:25px;
-justify-items:center;
-text-align:center;
+}
+
+.feature-row{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-bottom:25px;
+flex-wrap:wrap;
 }
 
 .feature-card{
@@ -108,6 +109,7 @@ background:#fefefe;
 padding:15px;
 border-radius:25px;
 box-shadow:0 4px 12px rgba(0,0,0,0.15);
+width:200px;
 }
 
 .feature-card img{
@@ -120,21 +122,14 @@ object-fit:contain;
 .feature-card span{
 font-weight:700;
 color:#001f4d;
-font-size:1.1em;
+font-size:1.2em;
+text-align:center;
 }
 
 .feature-card:hover{
 transform:scale(1.08);
 box-shadow:0 6px 20px rgba(0,0,0,0.25);
 }
-
-/* CENTER ROW 2 */
-
-.feature-card:nth-child(5){grid-column:2;}
-.feature-card:nth-child(6){grid-column:3;}
-.feature-card:nth-child(7){grid-column:4;}
-
-/* THREAD */
 
 .threads{
 padding:15px;
@@ -169,32 +164,24 @@ color:#777;
 border-top:1px solid #ddd;
 }
 
-/* MOBILE */
+@media(max-width:700px){
 
-@media(max-width:900px){
-
-.feature-cards{
-grid-template-columns:repeat(2,1fr);
+.feature-row{
+gap:15px;
 }
 
-.feature-card:nth-child(5),
-.feature-card:nth-child(6),
-.feature-card:nth-child(7){
-grid-column:auto;
+.feature-card{
+width:140px;
 }
 
-.hero{
-height:260px;
-}
-
-.hero h2{
-font-size:1.6em;
+.feature-card img{
+width:100px;
+height:100px;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
@@ -202,7 +189,7 @@ font-size:1.6em;
 <header>
 
 <div class="logo">
-<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png">
+<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo">
 </div>
 
 <div class="header-buttons">
@@ -224,7 +211,11 @@ font-size:1.6em;
 
 </div>
 
-<div class="feature-cards">
+<div class="feature-section">
+
+<!-- BARIS 1 -->
+
+<div class="feature-row">
 
 <a href="https://www.cuangaming.store" target="_blank" class="feature-card">
 <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/topupgame.png">
@@ -246,6 +237,12 @@ font-size:1.6em;
 <span>Komunitas</span>
 </a>
 
+</div>
+
+<!-- BARIS 2 -->
+
+<div class="feature-row">
+
 <a href="testimoni.html" class="feature-card">
 <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/testimoni.png">
 <span>Testimoni</span>
@@ -263,11 +260,15 @@ font-size:1.6em;
 
 </div>
 
+</div>
+
 <div class="threads">
+
 <div class="thread">
 <h3>🌟 Selamat datang di Forum CuanGaming!</h3>
 <p>oleh Cuan</p>
 </div>
+
 </div>
 
 <footer>
