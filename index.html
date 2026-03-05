@@ -14,6 +14,8 @@ background:#ffffff;
 color:#1a1a3f;
 }
 
+/* HEADER */
+
 header{
 background:#ffffff;
 display:flex;
@@ -49,6 +51,8 @@ transform:scale(1.05);
 background:#333366;
 }
 
+/* HERO VIDEO */
+
 .hero{
 width:100%;
 height:300px;
@@ -60,6 +64,31 @@ text-align:center;
 overflow:hidden;
 }
 
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:0;
+}
+
+/* overlay gelap */
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.25);
+z-index:1;
+}
+
+/* slider gambar */
+
 .hero img{
 position:absolute;
 top:0;
@@ -69,6 +98,7 @@ height:100%;
 object-fit:cover;
 opacity:0;
 transition:opacity 1s ease-in-out;
+z-index:1;
 }
 
 .hero img.active{
@@ -79,8 +109,8 @@ opacity:1;
 position:relative;
 font-size:2em;
 font-weight:bold;
-color:#001f4d;
-text-shadow:1px 1px 4px rgba(0,0,0,0.4);
+color:#ffffff;
+text-shadow:1px 1px 4px rgba(0,0,0,0.6);
 z-index:2;
 transform:translateY(-20%);
 }
@@ -131,6 +161,8 @@ transform:scale(1.08);
 box-shadow:0 6px 20px rgba(0,0,0,0.25);
 }
 
+/* THREAD */
+
 .threads{
 padding:15px;
 }
@@ -155,6 +187,8 @@ font-size:0.9em;
 color:#555;
 }
 
+/* FOOTER */
+
 footer{
 text-align:center;
 padding:12px;
@@ -163,6 +197,8 @@ background:#f0f0f0;
 color:#777;
 border-top:1px solid #ddd;
 }
+
+/* MOBILE */
 
 @media(max-width:700px){
 
@@ -189,7 +225,7 @@ height:100px;
 <header>
 
 <div class="logo">
-<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Logo">
+<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png">
 </div>
 
 <div class="header-buttons">
@@ -200,6 +236,10 @@ height:100px;
 </header>
 
 <div class="hero">
+
+<video autoplay muted loop playsinline>
+<source src="https://raw.githubusercontent.com/cuangaming/funbot/main/welcome%20moving.mp4" type="video/mp4">
+</video>
 
 <img src="https://raw.githubusercontent.com/cuangaming/funbot/230c0e3ea04a0eae80e0d416a03f562ad693fe1e/rox.jpg" class="active">
 
@@ -212,8 +252,6 @@ height:100px;
 </div>
 
 <div class="feature-section">
-
-<!-- BARIS 1 -->
 
 <div class="feature-row">
 
@@ -238,8 +276,6 @@ height:100px;
 </a>
 
 </div>
-
-<!-- BARIS 2 -->
 
 <div class="feature-row">
 
