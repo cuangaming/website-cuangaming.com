@@ -6,111 +6,153 @@
 <title>Komunitas • CuanGaming</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: #ffffff;
-  color: #1a1a3f;
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+font-family:"Poppins",sans-serif;
+background:url('https://raw.githubusercontent.com/cuangaming/funbot/main/testimonicuan.jpg') no-repeat center center fixed;
+background-size:cover;
+color:#1a1a3f;
 }
 
-header {
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 16px;
-  border-bottom: 1px solid #ddd;
+/* HEADER */
+
+header{
+background:rgba(255,255,255,0.8);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:8px 16px;
+border-bottom:1px solid #ddd;
+border-radius:10px;
 }
 
-header img {
-  height: 48px;
+header .logo img{
+height:48px;
+width:auto;
+cursor:pointer;
 }
 
-.header-btn{
-  background:#1a1a3f;
-  padding:6px 12px;
-  border-radius:10px;
-  color:#fff;
-  font-size:.85em;
-  text-decoration:none;
+.header-buttons{
+display:flex;
+gap:10px;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 30px 20px;
+.header-buttons a{
+background:#1a1a3f;
+padding:6px 12px;
+border-radius:10px;
+color:#fff;
+font-weight:600;
+font-size:.85em;
+text-decoration:none;
+transition:0.3s;
 }
 
-.page-title {
-  text-align: center;
-  margin-bottom: 30px;
+.header-buttons a:hover{
+transform:scale(1.05);
+background:#333366;
 }
 
-.page-title h1 {
-  margin: 0;
-  color: #001f4d;
+/* CONTAINER */
+
+.container{
+max-width:1000px;
+margin:30px auto;
+padding:0 16px;
 }
 
-.community-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+.page-title{
+text-align:center;
+margin-bottom:30px;
+background:rgba(255,255,255,0.9);
+padding:15px;
+border-radius:10px;
 }
 
-.community-card {
-  border: 1px solid #ddd;
-  border-radius: 14px;
-  padding: 20px;
-  text-align: center;
-  transition: 0.2s;
+.page-title h1{
+margin:0;
+color:#001f4d;
 }
 
-.community-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+/* COMMUNITY ROW */
+
+.community-row{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding-bottom:10px;
 }
 
-.community-card h2 {
-  margin: 10px 0;
-  font-size: 1.2em;
-  color: #001f4d;
+.community-card{
+min-width:220px;
+background:rgba(255,255,255,0.9);
+border:1px solid #ddd;
+border-radius:14px;
+padding:20px;
+text-align:center;
+transition:0.2s;
 }
 
-.community-card p {
-  font-size: 0.9em;
-  color: #555;
+.community-card:hover{
+transform:translateY(-5px);
+box-shadow:0 6px 12px rgba(0,0,0,0.15);
 }
 
-.join-btn {
-  display: inline-block;
-  margin-top: 10px;
-  background: #1a1a3f;
-  padding: 8px 16px;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 0.85em;
-  text-decoration: none;
+.community-card h2{
+margin:10px 0;
+font-size:1.2em;
+color:#001f4d;
 }
 
-footer {
-  text-align: center;
-  padding: 12px;
-  font-size: 0.85em;
-  background: #f0f0f0;
-  color: #777;
-  border-top: 1px solid #ddd;
+.community-card p{
+font-size:0.9em;
+color:#555;
 }
+
+.join-btn{
+display:inline-block;
+margin-top:10px;
+background:#1a1a3f;
+padding:8px 16px;
+border-radius:8px;
+color:#fff;
+font-size:0.85em;
+text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:12px;
+font-size:0.85em;
+background:rgba(255,255,255,0.8);
+color:#777;
+border-top:1px solid #ddd;
+border-radius:10px;
+margin:20px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
+<div class="logo">
 <a href="index.html">
 <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="CuanGaming">
 </a>
+</div>
 
-<a href="index.html" class="header-btn">Kembali</a>
+<div class="header-buttons">
+<a href="https://www.facebook.com/lidwinalaurenza/subscribe">Daftar Reseller</a>
+<a href="hubungi.html">Hubungi Kami</a>
+</div>
+
 </header>
 
 <div class="container">
@@ -119,7 +161,7 @@ footer {
 <h1>Komunitas Cuan Gaming</h1>
 </div>
 
-<div class="community-grid">
+<div class="community-row">
 
 <!-- Ragnarok -->
 <div class="community-card">
@@ -130,7 +172,7 @@ Gabung Grup
 </a>
 </div>
 
-<!-- MOBA -->
+<!-- Roblox -->
 <div class="community-card">
 <h2>Roblox</h2>
 <p>Tempat kumpul pemain Roblox di komunitas Cuan Gaming.</p>
@@ -139,10 +181,10 @@ Gabung Grup
 </a>
 </div>
 
-<!-- Roblox -->
+<!-- Game lainnya -->
 <div class="community-card">
 <h2>Game Lainnya</h2>
-<p>Ngobrol bareng dan diskusi tentang game-game bersama Cuan Gaming.</p>
+<p>Ngobrol bareng dan diskusi tentang game bersama Cuan Gaming.</p>
 <a class="join-btn" href="https://chat.whatsapp.com/ELsN4XKCRrz0bBogu0Z7I1" target="_blank">
 Gabung Grup
 </a>
