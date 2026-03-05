@@ -7,15 +7,48 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb;padding:16px}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0f172a;
+color:#e5e7eb;
+padding:16px
+}
 
 .disclaimer{
 background:#1e293b;
 border-left:4px solid #f59e0b;
 padding:14px;
-margin-bottom:20px;
+margin-bottom:12px;
 border-radius:6px;
 font-size:13px
+}
+
+.button-group{
+display:flex;
+gap:10px;
+margin-bottom:20px
+}
+
+.button-group a{
+flex:1;
+text-align:center;
+padding:10px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+font-size:14px
+}
+
+.btn-back{
+background:#64748b;
+color:white
+}
+
+.btn-wa{
+background:#22c55e;
+color:white
 }
 
 h1,h2{margin-bottom:10px}
@@ -106,6 +139,11 @@ Setiap laporan merupakan klaim yang belum terbukti secara hukum. Website ini tid
 Jika Anda merasa disebutkan secara tidak benar, silakan kontak kami untuk klarifikasi atau permintaan penghapusan laporan.
 </div>
 
+<div class="button-group">
+<a href="index.html" class="btn-back">⬅ Kembali</a>
+<a href="https://wa.me/6281519267749" target="_blank" class="btn-wa">💬 Hubungi Kami</a>
+</div>
+
 <h1>⚠️ Laporan Transaksi Bermasalah</h1>
 <p>Laporan untuk tujuan informasi dan kewaspadaan.</p>
 
@@ -180,19 +218,11 @@ const supabaseKey = "sb_publishable_CkbvV7KamxpSa8aPFWK-gw_pim1oq1V";
 const { createClient } = supabase;
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
-
-
 function maskData(text){
-
 if(!text) return "-";
-
 if(text.length <= 4) return "****";
-
 return text.substring(0,4) + "****";
-
 }
-
-
 
 async function renderTable(){
 
@@ -230,14 +260,11 @@ tbody.innerHTML += `
 
 }
 
-
-
 document.getElementById("laporForm").addEventListener("submit",async function(e){
 
 e.preventDefault();
 
 const file = document.getElementById("foto").files[0];
-
 let fotoData="";
 
 if(file){
@@ -245,11 +272,8 @@ if(file){
 const reader = new FileReader();
 
 reader.onload = async function(){
-
 fotoData = reader.result;
-
 await kirimData(fotoData);
-
 };
 
 reader.readAsDataURL(file);
@@ -261,8 +285,6 @@ await kirimData("");
 }
 
 });
-
-
 
 async function kirimData(foto){
 
@@ -279,38 +301,24 @@ status: "pending"
 if(error){
 
 alert("Gagal kirim laporan");
-
 console.error(error);
-
 return;
 
 }
 
 document.getElementById("laporForm").reset();
-
 alert("Laporan berhasil dikirim dan sedang menunggu review admin.");
 
 }
 
-
-
 function openFoto(src){
-
 document.getElementById("fotoPreview").src = src;
-
 document.getElementById("fotoModal").style.display="flex";
-
 }
-
-
 
 function closeFoto(){
-
 document.getElementById("fotoModal").style.display="none";
-
 }
-
-
 
 renderTable();
 
