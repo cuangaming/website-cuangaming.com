@@ -6,139 +6,201 @@
 <title>Edukasi • CuanGaming</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #ffffff;
-    color: #1a1a3f;
-  }
 
-  header {
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 16px;
-    border-bottom: 1px solid #ddd;
-  }
+*{box-sizing:border-box;margin:0;padding:0;}
 
-  header img { height: 48px; }
+body{
+  font-family:"Poppins", sans-serif;
+  background:url('https://raw.githubusercontent.com/cuangaming/funbot/main/testimonicuan.jpg') no-repeat center center fixed;
+  background-size:cover;
+  color:#1a1a3f;
+}
 
-  header a {
-    background: #1a1a3f;
-    padding: 6px 12px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 0.85em;
-    text-decoration: none;
-  }
+/* ===== Header (sama seperti testimoni) ===== */
 
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px 20px;
-  }
+header{
+  background:rgba(255,255,255,0.8);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 16px;
+  border-bottom:1px solid #ddd;
+  border-radius:10px;
+}
 
-  h1 {
-    text-align: center;
-    color: #001f4d;
-    margin-bottom: 10px;
-  }
+header .logo img{
+  height:48px;
+  width:auto;
+  cursor:pointer;
+}
 
-  .subtitle {
-    text-align: center;
-    color: #555;
-    font-size: 0.95em;
-    margin-bottom: 30px;
-  }
+.header-buttons{
+  display:flex;
+  gap:10px;
+}
 
-  .article-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
+.header-buttons a{
+  background:#1a1a3f;
+  padding:6px 12px;
+  border-radius:10px;
+  color:#fff;
+  font-weight:600;
+  font-size:.85em;
+  text-decoration:none;
+  transition:0.3s;
+}
 
-  .article-item {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 14px;
-    padding: 18px;
-  }
+.header-buttons a:hover{
+  transform:scale(1.05);
+  background:#333366;
+}
 
-  .article-item h3 {
-    margin: 0 0 8px;
-    font-size: 1.05em;
-    color: #001f4d;
-  }
+/* ===== Container ===== */
 
-  .article-meta {
-    font-size: 0.8em;
-    color: #777;
-    margin-bottom: 10px;
-  }
+.container{
+  max-width:1000px;
+  margin:30px auto;
+  padding:0 16px;
+}
 
-  .article-desc {
-    font-size: 0.9em;
-    color: #555;
-    line-height: 1.5;
-  }
+.page-box{
+  background:rgba(255,255,255,0.9);
+  padding:30px;
+  border-radius:14px;
+}
 
-  .article-item a {
-    text-decoration: none;
-    color: inherit;
-  }
+/* ===== Title ===== */
 
-  footer {
-    text-align: center;
-    padding: 12px;
-    font-size: 0.85em;
-    background: #f0f0f0;
-    color: #777;
-    border-top: 1px solid #ddd;
-  }
+h1{
+  text-align:center;
+  color:#001f4d;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#555;
+  font-size:0.95em;
+  margin-bottom:30px;
+}
+
+/* ===== Article List ===== */
+
+.article-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.article-item{
+  background:#ffffff;
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:18px;
+  transition:0.2s;
+}
+
+.article-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 6px 12px rgba(0,0,0,0.12);
+}
+
+.article-item h3{
+  margin:0 0 8px;
+  font-size:1.05em;
+  color:#001f4d;
+}
+
+.article-meta{
+  font-size:0.8em;
+  color:#777;
+  margin-bottom:10px;
+}
+
+.article-desc{
+  font-size:0.9em;
+  color:#555;
+  line-height:1.5;
+}
+
+.article-item a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* ===== Footer ===== */
+
+footer{
+  text-align:center;
+  padding:12px;
+  font-size:.85em;
+  background:rgba(255,255,255,0.8);
+  color:#777;
+  border-top:1px solid #ddd;
+  border-radius:10px;
+  margin:20px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Gaming">
-  <a href="index.html">Home</a>
+
+<div class="logo">
+<a href="index.html">
+<img src="https://raw.githubusercontent.com/cuangaming/funbot/main/Cuan%20Logo%20(1)%20copy%20fit.png" alt="Cuan Gaming">
+</a>
+</div>
+
+<div class="header-buttons">
+<a href="https://www.facebook.com/lidwinalaurenza/subscribe">Daftar Reseller</a>
+<a href="hubungi.html">Hubungi Kami</a>
+</div>
+
 </header>
 
 <div class="container">
-  <h1>Edukasi</h1>
-  <div class="subtitle">
-    Artikel edukasi seputar gaming, jual beli aman, dan tips cuan
-  </div>
 
-  <div class="article-list">
+<div class="page-box">
 
-    <div class="article-item">
-      <a href="edukasi-jual-beli-aman.html">
-        <h3>Cara Aman Jual Beli Akun Game</h3>
-        <div class="article-meta">Admin • Edukasi</div>
-        <div class="article-desc">
-          Panduan dasar agar terhindar dari penipuan saat transaksi akun game.
-        </div>
-      </a>
-    </div>
+<h1>Edukasi</h1>
 
-    <div class="article-item">
-      <a href="edukasi-tips-topup.html">
-        <h3>Tips Topup Game yang Aman & Murah</h3>
-        <div class="article-meta">Admin • Edukasi</div>
-        <div class="article-desc">
-          Hal-hal penting yang perlu diperhatikan sebelum melakukan topup game.
-        </div>
-      </a>
-    </div>
+<div class="subtitle">
+Artikel edukasi seputar gaming, jual beli aman, dan tips cuan
+</div>
 
-  </div>
+<div class="article-list">
+
+<div class="article-item">
+<a href="edukasi-jual-beli-aman.html">
+<h3>Cara Aman Jual Beli Akun Game</h3>
+<div class="article-meta">Admin • Edukasi</div>
+<div class="article-desc">
+Panduan dasar agar terhindar dari penipuan saat transaksi akun game.
+</div>
+</a>
+</div>
+
+<div class="article-item">
+<a href="edukasi-tips-topup.html">
+<h3>Tips Topup Game yang Aman & Murah</h3>
+<div class="article-meta">Admin • Edukasi</div>
+<div class="article-desc">
+Hal-hal penting yang perlu diperhatikan sebelum melakukan topup game.
+</div>
+</a>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <footer>
-  © 2025 CuanGaming. All rights reserved.
+© 2025 CuanGaming. All rights reserved.
 </footer>
 
 </body>
