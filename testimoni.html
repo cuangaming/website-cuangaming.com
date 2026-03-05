@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CuanGaming • Testimoni</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
 <style>
 
@@ -29,7 +29,9 @@ padding:8px 16px;
 border-radius:10px;
 }
 
-header img{height:48px;}
+header img{
+height:48px;
+}
 
 .header-buttons{
 display:flex;
@@ -181,7 +183,9 @@ height="630">
 
 /* SUPABASE */
 
-const supabase = window.supabase.createClient(
+const { createClient } = supabase
+
+const supabaseClient = createClient(
 "https://dooqhxywmjwtlsodgplz.supabase.co",
 "sb_publishable_CkbvV7KamxpSa8aPFWK-gw_pim1oq1V"
 )
@@ -190,10 +194,15 @@ const supabase = window.supabase.createClient(
 
 async function loadTestimoni(){
 
-const { data, error } = await supabase
+const { data, error } = await supabaseClient
 .from('testimoni')
 .select('*')
 .order('created_at',{ascending:false})
+
+if(error){
+console.log(error)
+return
+}
 
 const list=document.getElementById("testimoniList")
 list.innerHTML=""
@@ -226,7 +235,7 @@ e.preventDefault()
 const nama=document.getElementById("nama").value
 const komen=document.getElementById("komen").value
 
-const { error } = await supabase
+const { error } = await supabaseClient
 .from("testimoni")
 .insert([{nama,komen}])
 
