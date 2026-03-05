@@ -219,9 +219,16 @@ const { createClient } = supabase;
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
 function maskData(text){
+
 if(!text) return "-";
-if(text.length <= 4) return "****";
-return text.substring(0,4) + "****";
+
+if(text.length <= 7) return text;
+
+const start = text.substring(0,5);
+const end = text.slice(-3);
+
+return start + "xxxx" + end;
+
 }
 
 async function renderTable(){
