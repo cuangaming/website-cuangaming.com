@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Submit Jualan</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<style>
+
+body{
+font-family:Poppins;
+max-width:500px;
+margin:auto;
+padding:30px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+}
+
+button{
+padding:10px;
+background:#1a1a3f;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Post Showcase</h2>
+
+<form id="form">
+
+<input type="text" id="nama" placeholder="Nama Barang" required>
+
+<select id="kategori">
+<option>Game</option>
+<option>Aplikasi</option>
+<option>Akun</option>
+</select>
+
+<input type="text" id="harga" placeholder="Harga">
+
+<input type="text" id="kontak" placeholder="WhatsApp / Telegram">
+
+<input type="file" id="gambar">
+
+<button type="submit">Post</button>
+
+</form>
+
+<script>
+
+const supabase = supabase.createClient(
+"https://PROJECT.supabase.co",
+"PUBLIC_ANON_KEY"
+)
+
+document.getElementById("form").addEventListener("submit", async (e)=>{
+
+e.preventDefault()
+
+const file = document.getElementById("gambar").files[0]
+
+const fileName = Date.now()+"_"+file.name
+
+await supabase.storage
+.from("showcase")
+.upload(fileName,file)
+
+const imageURL =
+"https://PROJECT.supabase.co/storage/v1/object/public/showcase/"+fileName
+
+await supabase.from("showcase").insert([{
+
+nama_barang: document.getElementById("nama").value,
+kategori: document.getElementById("kategori").value,
+harga: document.getElementById("harga").value,
+kontak: document.getElementById("kontak").value,
+gambar: imageURL
+
+}])
+
+alert("Barang berhasil dipost!")
+
+})
+
+</script>
+
+</body>
+</html>
