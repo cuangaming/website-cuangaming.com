@@ -222,7 +222,7 @@ function maskData(text){
 
 if(!text) return "-";
 
-if(text.length <= 7) return text;
+if(text.length <= 50) return text;
 
 const start = text.substring(0,5);
 const end = text.slice(-3);
@@ -249,7 +249,7 @@ tbody.innerHTML="";
 
 data.forEach((item,index)=>{
 
-const ringkas = item.kronologi.length > 80
+const ringkas = item.kronologi.length > 1000
 ? item.kronologi.substring(0,80)+"..."
 : item.kronologi;
 
